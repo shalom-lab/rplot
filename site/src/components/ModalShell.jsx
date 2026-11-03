@@ -6,38 +6,47 @@ export default function ModalShell({
   children,
   footer,
   wide = false,
+  layer = 60,
 }) {
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-stone-900/40 p-4 backdrop-blur-[2px]"
+      className="fixed inset-0 flex items-center justify-center p-4"
+      style={{
+        zIndex: layer,
+        background: "rgba(48, 40, 32, 0.42)",
+        backdropFilter: "blur(3px)",
+      }}
       onClick={(e) => {
-        if (e.target === e.currentTarget) onClose?.();
+        if (e.target === e.currentTarget && onClose) onClose();
       }}
     >
       <div
-        className={`w-full border border-[var(--color-line)] bg-[var(--color-card)] shadow-[0_24px_60px_rgba(28,25,23,0.2)] r-modal ${
-          wide ? "max-w-4xl" : "max-w-[420px]"
+        role="dialog"
+        aria-modal="true"
+        className={`w-full overflow-hidden border border-[var(--color-line)] bg-[var(--color-card)] shadow-[0_24px_60px_rgba(28,25,23,0.22)] r-modal ${
+          wide ? "max-w-4xl" : "max-w-[440px]"
         }`}
+        style={{ background: "#fffdf9" }}
       >
-        <div className="flex items-center gap-2 border-b border-[var(--color-line)] px-4 py-3">
-          <h2 className="m-0 text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+        <div className="flex items-center gap-2 border-b border-[var(--color-line)] bg-[var(--color-panel)]/70 px-4 py-3">
+          <h2 className="m-0 text-[15px] font-semibold tracking-tight text-[var(--color-ink)]">
             {title}
           </h2>
           <div className="flex-1" />
           {onClose && (
             <button
               type="button"
-              className="inline-flex size-8 items-center justify-center rounded-[12px] text-[var(--color-muted)] hover:bg-[var(--color-panel)] hover:text-[var(--color-ink)]"
+              className="ui-btn ui-icon-btn ui-btn-ghost"
               onClick={onClose}
               aria-label="关闭"
             >
-              <IconX className="size-3.5" />
+              <IconX className="size-4" />
             </button>
           )}
         </div>
         <div className="px-4 py-4">{children}</div>
         {footer && (
-          <div className="flex justify-end gap-2 border-t border-[var(--color-line)] px-4 py-3">
+          <div className="flex justify-end gap-2 border-t border-[var(--color-line)] bg-[var(--color-panel)]/40 px-4 py-3">
             {footer}
           </div>
         )}

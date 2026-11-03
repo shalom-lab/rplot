@@ -9,7 +9,7 @@ export default function Header({
   onOpenSettings,
 }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--color-line)]/80 bg-[var(--color-canvas)]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-[var(--color-line)]/80 bg-[var(--color-canvas)]/92 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-[1500px] items-center gap-3 px-4">
         <div className="flex shrink-0 items-center gap-2">
           <div className="flex size-8 items-center justify-center rounded-[12px] bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]">
@@ -40,37 +40,41 @@ export default function Header({
           </kbd>
         </label>
 
-        <div className="flex shrink-0 items-center gap-1">
+        <div className="flex shrink-0 items-center gap-1.5">
           <button
             type="button"
             title="仅看星标"
             aria-label="仅看星标"
             aria-pressed={starredOnly}
             onClick={onToggleStarred}
-            className={`inline-flex size-9 items-center justify-center rounded-[12px] transition ${
+            className={`ui-btn ui-icon-btn ${
               starredOnly
-                ? "bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]"
-                : "text-[var(--color-muted)] hover:bg-white/70 hover:text-[var(--color-ink)]"
+                ? "border-[var(--color-coral)]/40 bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]"
+                : ""
             }`}
           >
             <IconStar filled={starredOnly} className="size-4" />
           </button>
+
+          {/* Clear, visible settings entry */}
           <button
             type="button"
-            title="BYOK 设置"
+            title="设置 · BYOK"
             aria-label="设置"
             onClick={onOpenSettings}
-            className="inline-flex size-9 items-center justify-center rounded-[12px] text-[var(--color-muted)] transition hover:bg-white/70 hover:text-[var(--color-ink)]"
+            className="ui-btn border-[var(--color-line-strong)] bg-white px-2.5 shadow-[0_1px_2px_rgba(28,25,23,0.04)] hover:border-[var(--color-coral)]/50 hover:bg-[var(--color-coral-soft)]/60"
           >
-            <IconGear className="size-4" />
+            <IconGear className="size-[18px]" />
+            <span className="hidden sm:inline">设置</span>
           </button>
+
           <a
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
             title="GitHub 仓库"
             aria-label="GitHub 仓库"
-            className="inline-flex size-9 items-center justify-center rounded-[12px] text-[var(--color-muted)] transition hover:bg-white/70 hover:text-[var(--color-ink)]"
+            className="ui-btn ui-icon-btn"
           >
             <IconGitHub className="size-4" />
           </a>

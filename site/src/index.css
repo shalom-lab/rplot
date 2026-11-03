@@ -160,3 +160,110 @@
   color: #faf7f2;
   font-weight: 600;
 }
+
+/* Shared chrome controls — warm cream bookshelf */
+.ui-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--color-line-strong);
+  background: #fff;
+  color: var(--color-ink);
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--radius-control);
+  transition: background 0.12s, border-color 0.12s, box-shadow 0.12s, color 0.12s;
+}
+.ui-btn:hover {
+  background: var(--color-panel);
+  border-color: #c9bfb0;
+}
+.ui-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.ui-btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+.ui-btn-primary:hover {
+  filter: brightness(0.96);
+  background: var(--color-accent);
+}
+.ui-btn-danger {
+  background: #fff5f4;
+  border-color: #efc4bc;
+  color: #9f4034;
+}
+.ui-btn-danger:hover {
+  background: #fde8e4;
+}
+.ui-btn-danger-solid {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  color: #fff;
+}
+.ui-btn-danger-solid:hover {
+  background: #991b1b;
+}
+.ui-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-muted);
+}
+.ui-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-ink);
+  border-color: transparent;
+}
+.ui-icon-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+.ui-field {
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--color-line-strong);
+  background: #fff;
+  color: var(--color-ink);
+  padding: 0 12px;
+  font-size: 13px;
+  outline: none;
+  border-radius: var(--radius-control);
+  transition: border-color 0.12s, box-shadow 0.12s, background 0.12s;
+}
+.ui-field:focus {
+  border-color: var(--color-coral);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-coral) 28%, transparent);
+  background: #fff;
+}
+.ui-field-mono {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+}
+.ui-banner {
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  border-radius: var(--radius-control);
+  padding: 10px 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-ink);
+}
+.ui-banner-ok {
+  border-color: #c9e4d0;
+  background: #eef8f0;
+  color: #1f6b3a;
+}
+.ui-banner-warn {
+  border-color: #edd6b8;
+  background: #faf3e8;
+  color: #7a5420;
+}
