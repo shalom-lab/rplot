@@ -32,7 +32,7 @@ export default function Header({
     <header className="sticky top-0 z-40 hairline-b bg-[var(--color-canvas)]/92 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-[1500px] items-center gap-3 px-4">
         <div className="flex shrink-0 items-center gap-2">
-          <div className="flex size-8 items-center justify-center rounded-[12px] bg-[var(--color-theme-soft)] text-[var(--color-theme)]">
+          <div className="flex size-8 items-center justify-center rounded-[12px] bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]">
             <span className="text-[13px] font-bold tracking-tight">R</span>
           </div>
           <div className="leading-tight">
@@ -69,7 +69,7 @@ export default function Header({
               </span>
               <button
                 type="button"
-                className="border-0 bg-transparent px-1 text-[12.5px] font-medium text-[#9f4034] transition hover:opacity-70 disabled:opacity-40"
+                className="ui-btn ui-btn-danger h-8 px-2.5 text-[12.5px]"
                 disabled={selectedCount === 0}
                 onClick={handleDeleteClick}
                 title={selectedCount === 0 ? "请先勾选卡片" : "删除所选"}

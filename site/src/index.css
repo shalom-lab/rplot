@@ -14,13 +14,13 @@
   --color-muted: #78716c;
   --color-line: rgba(120, 100, 80, 0.10);
   --color-line-strong: rgba(120, 100, 80, 0.16);
-  --color-coral: #93c5fd; /* soft blue chip */
-  --color-coral-soft: #eff6ff;
-  --color-coral-text: #1d4ed8;
-  --color-accent: #2563eb;
-  --color-theme: #2563eb;
-  --color-theme-soft: #dbeafe;
-  --color-danger: #b91c1c;
+  --color-coral: #e8a598;
+  --color-coral-soft: #f8e4df;
+  --color-coral-text: #9a4d3f;
+  --color-accent: #c4786a;
+  --color-theme: #c4786a;
+  --color-theme-soft: #f8e4df;
+  --color-danger: #9a4d3f;
 
   --radius-chip: 6px;
   --radius-control: 8px;
@@ -199,12 +199,12 @@
   background: var(--color-accent);
 }
 .ui-btn-danger {
-  background: #fff5f4;
-  border-color: #efc4bc;
-  color: #9f4034;
+  background: var(--color-coral-soft);
+  border-color: color-mix(in srgb, var(--color-coral) 55%, #fff);
+  color: var(--color-coral-text);
 }
 .ui-btn-danger:hover {
-  background: #fde8e4;
+  background: color-mix(in srgb, var(--color-coral-soft) 70%, #fff);
 }
 .ui-btn-danger-solid {
   background: #b91c1c;
