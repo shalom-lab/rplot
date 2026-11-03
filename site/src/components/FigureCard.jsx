@@ -66,6 +66,13 @@ export default function FigureCard({
     }
   }
 
+  const tagsLine = [
+    fig.category,
+    ...(fig.tags?.slice(0, 2) || []),
+  ]
+    .filter(Boolean)
+    .join(" · ");
+
   return (
     <article
       className={`group relative flex flex-col overflow-hidden border bg-[var(--color-card)] shadow-[0_1px_2px_rgba(28,25,23,0.03)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(28,25,23,0.08)] r-card ${
@@ -97,7 +104,7 @@ export default function FigureCard({
           draggable={false}
         />
 
-        {/* Top-right: select checkbox only */}
+        {/* Top-right: select checkbox only (select mode) */}
         {selectMode && (
           <span
             className={`pointer-events-none absolute right-2 top-2 inline-flex size-7 items-center justify-center drop-shadow-[0_0_2px_rgba(255,255,255,0.95)] ${
@@ -108,51 +115,54 @@ export default function FigureCard({
             <IconSelect className="size-[18px]" checked={selected} />
           </span>
         )}
-
-        {/* Bottom-right: copy + star (browse mode) */}
-        {!selectMode && (
-          <div className="absolute bottom-2 right-2 flex items-center gap-1 opacity-100">
-            <button
-              type="button"
-              onClick={handleCopy}
-              title="复制图片"
-              aria-label="复制图片"
-              disabled={copying}
-              className="icon-theme inline-flex size-7 items-center justify-center border-0 bg-transparent p-0 drop-shadow-[0_0_2px_rgba(255,255,255,0.85)] transition disabled:opacity-50"
-            >
-              {copying ? (
-                <IconSpinner className="size-4" />
-              ) : (
-                <IconCopy className="size-4" />
-              )}
-            </button>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                onStar(fig.id);
-              }}
-              title={starred ? "取消星标" : "加星标"}
-              aria-label={starred ? "取消星标" : "加星标"}
-              className={`icon-theme inline-flex size-7 items-center justify-center border-0 bg-transparent p-0 drop-shadow-[0_0_2px_rgba(255,255,255,0.85)] transition ${
-                starred ? "opacity-100" : ""
-              }`}
-            >
-              <IconStar filled={starred} className="size-4" />
-            </button>
-          </div>
-        )}
       </div>
 
-      {/* Thin hairline between image and meta */}
-      <div className="card-meta-hairline flex flex-col gap-0.5 px-3 py-2.5">
-        <h3 className="m-0 line-clamp-2 text-[13px] font-semibold leading-snug text-[var(--color-ink)]">
-          {fig.title}
-        </h3>
-        <p className="m-0 truncate text-[11.5px] leading-snug text-[var(--color-muted)]">
-          {fig.category}
-          {fig.tags?.length ? ` · ${fig.tags.slice(0, 2).join(" · ")}` : ""}
-        </p>
+      {/* Footer: left meta + right copy/star (no share) */}
+      <div className="card-meta-hairline flex items-center justify-between gap-2 px-3 py-2.5">
+        <div className="min-w-0 flex-1">
+          <h3 className="m-0 truncate text-[13px] font-semibold leading-snug text-[var(--color-ink)]">
+            {fig.title}
+          </h3>
+          {tagsLine ? (
+            <p className="m-0 truncate text-[11.5px] leading-snug text-[var(--color-muted)]">
+              {tagsLine}
+            </p>
+          ) : null}
+        </div>
+
+        <div className="flex shrink-0 items-center gap-1">
+          <button
+            type="button"
+            onClick={handleCopy}
+            title="复制图片"
+            aria-label="复制图片"
+            disabled={copying}
+            className="icon-theme inline-flex size-7 items-center justify-center rounded-full border-0 bg-transparent p-0 transition hover:bg-[var(--color-theme-soft)] disabled:opacity-50"
+          >
+            {copying ? (
+              <IconSpinner className="size-4" />
+            ) : (
+              <IconCopy className="size-4" />
+            )}
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onStar(fig.id);
+            }}
+            title={starred ? "取消星标" : "加星标"}
+            aria-label={starred ? "取消星标" : "加星标"}
+            aria-pressed={starred}
+            className={`icon-theme inline-flex size-7 items-center justify-center rounded-full border-0 p-0 transition ${
+              starred
+                ? "bg-[var(--color-theme-soft)] opacity-100"
+                : "bg-transparent hover:bg-[var(--color-theme-soft)]"
+            }`}
+          >
+            <IconStar filled={starred} className="size-4" />
+          </button>
+        </div>
       </div>
     </article>
   );
