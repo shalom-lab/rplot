@@ -354,6 +354,7 @@ export default function App() {
                     onStar={toggleStar}
                     onToggleSelect={toggleSelectId}
                     onOpen={setLightbox}
+                    onToast={showToast}
                   />
                 </div>
               ))}

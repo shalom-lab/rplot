@@ -1,5 +1,35 @@
-import { IconCheck, IconStar } from "../lib/icons";
+import { useState } from "react";
+import { IconCheck, IconCopy, IconSpinner, IconStar } from "../lib/icons";
 import { assetUrl } from "../lib/byok";
+
+async function copyImageToClipboard(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("图片加载失败");
+  let blob = await res.blob();
+  // Clipboard API reliably accepts image/png
+  if (blob.type !== "image/png") {
+    const bmp = await createImageBitmap(blob);
+    const canvas = document.createElement("canvas");
+    canvas.width = bmp.width;
+    canvas.height = bmp.height;
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(bmp, 0, 0);
+    blob = await new Promise((resolve, reject) => {
+      canvas.toBlob(
+        (b) => (b ? resolve(b) : reject(new Error("转 PNG 失败"))),
+        "image/png"
+      );
+    });
+  }
+  if (!navigator.clipboard?.write) {
+    throw new Error("当前浏览器不支持复制图片");
+  }
+  await navigator.clipboard.write([
+    new ClipboardItem({ [blob.type]: blob }),
+  ]);
+}
 
 export default function FigureCard({
   fig,
@@ -9,13 +39,31 @@ export default function FigureCard({
   onStar,
   onToggleSelect,
   onOpen,
+  onToast,
 }) {
-  function handleCardClick() {
+  const [copying, setCopying] = useState(false);
+  const src = assetUrl(fig.file);
+
+  function handleImageClick() {
     if (selectMode) {
       onToggleSelect?.(fig.id);
       return;
     }
     onOpen(fig);
+  }
+
+  async function handleCopy(e) {
+    e.stopPropagation();
+    if (copying) return;
+    setCopying(true);
+    try {
+      await copyImageToClipboard(src);
+      onToast?.("已复制图片到剪贴板");
+    } catch (err) {
+      onToast?.(err.message || "复制失败", true);
+    } finally {
+      setCopying(false);
+    }
   }
 
   return (
@@ -26,41 +74,66 @@ export default function FigureCard({
           : "border-[var(--color-line)]"
       }`}
     >
-      <button
-        type="button"
-        className={`relative block w-full overflow-hidden bg-white text-left leading-none ${
+      <div
+        className={`relative w-full overflow-hidden bg-white leading-none ${
           selectMode ? "cursor-pointer" : "cursor-zoom-in"
         }`}
-        onClick={handleCardClick}
+        onClick={handleImageClick}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleImageClick();
+          }
+        }}
         title={selectMode ? (selected ? "取消选择" : "选择此图") : "放大预览"}
       >
         <img
-          src={assetUrl(fig.file)}
+          src={src}
           alt={fig.title}
           loading="lazy"
           className="m-0 block h-auto w-full max-w-full align-top transition duration-300 group-hover:scale-[1.015]"
-          style={{ verticalAlign: "top" }}
+          draggable={false}
         />
 
-        {selectMode ? (
+        {/* Top-right: select checkbox only */}
+        {selectMode && (
           <span
-            className={`absolute right-2 top-2 inline-flex size-7 items-center justify-center rounded-[10px] border backdrop-blur-md ${
+            className={`pointer-events-none absolute right-2 top-2 inline-flex size-7 items-center justify-center rounded-[8px] border backdrop-blur-md ${
               selected
                 ? "border-[var(--color-coral)] bg-[var(--color-coral)] text-white"
-                : "border-white/40 bg-white/85 text-stone-500"
+                : "border-white/40 bg-white/90 text-stone-500"
             }`}
             aria-hidden
           >
             {selected ? <IconCheck className="size-3.5" /> : null}
           </span>
-        ) : (
-          <span
-            className={`absolute right-2 top-2 inline-flex ${
+        )}
+
+        {/* Bottom-right: copy + star (browse mode) */}
+        {!selectMode && (
+          <div
+            className={`absolute bottom-2 right-2 flex items-center gap-1.5 transition ${
               starred
                 ? "opacity-100"
                 : "opacity-0 group-hover:opacity-100 focus-within:opacity-100"
-            } transition`}
+            }`}
           >
+            <button
+              type="button"
+              onClick={handleCopy}
+              title="复制图片"
+              aria-label="复制图片"
+              disabled={copying}
+              className="inline-flex size-8 items-center justify-center rounded-[8px] border border-white/35 bg-white/90 text-stone-600 backdrop-blur-md transition hover:bg-white disabled:opacity-60"
+            >
+              {copying ? (
+                <IconSpinner className="size-3.5" />
+              ) : (
+                <IconCopy className="size-3.5" />
+              )}
+            </button>
             <button
               type="button"
               onClick={(e) => {
@@ -69,19 +142,20 @@ export default function FigureCard({
               }}
               title={starred ? "取消星标" : "加星标"}
               aria-label={starred ? "取消星标" : "加星标"}
-              className={`inline-flex size-8 items-center justify-center rounded-[12px] border backdrop-blur-md transition ${
+              className={`inline-flex size-8 items-center justify-center rounded-[8px] border backdrop-blur-md transition ${
                 starred
                   ? "border-amber-200/55 bg-amber-50/95 text-amber-700"
-                  : "border-white/30 bg-white/85 text-stone-600 hover:bg-white"
+                  : "border-white/35 bg-white/90 text-stone-600 hover:bg-white"
               }`}
             >
               <IconStar filled={starred} className="size-3.5" />
             </button>
-          </span>
+          </div>
         )}
-      </button>
+      </div>
 
-      <div className="flex flex-col gap-0.5 px-3 py-2.5">
+      {/* Thin hairline between image and meta */}
+      <div className="card-meta-hairline flex flex-col gap-0.5 px-3 py-2.5">
         <h3 className="m-0 line-clamp-2 text-[13px] font-semibold leading-snug text-[var(--color-ink)]">
           {fig.title}
         </h3>

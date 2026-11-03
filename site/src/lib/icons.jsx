@@ -93,3 +93,12 @@ export function IconSelect({ className = "size-4", checked = false }) {
     </svg>
   );
 }
+
+export function IconCopy({ className = "size-3.5" }) {
+  return (
+    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden>
+      <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" />
+      <path d="M10.5 5.5V4.2A1.7 1.7 0 008.8 2.5H4.2A1.7 1.7 0 002.5 4.2v4.6A1.7 1.7 0 004.2 10.5H5.5" strokeLinecap="round" />
+    </svg>
+  );
+}
