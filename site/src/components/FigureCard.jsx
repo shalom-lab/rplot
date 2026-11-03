@@ -111,13 +111,7 @@ export default function FigureCard({
 
         {/* Bottom-right: copy + star (browse mode) */}
         {!selectMode && (
-          <div
-            className={`absolute bottom-2 right-2 flex items-center gap-2.5 transition ${
-              starred
-                ? "opacity-100"
-                : "opacity-0 group-hover:opacity-100 focus-within:opacity-100"
-            }`}
-          >
+          <div className="absolute bottom-2 right-2 flex items-center gap-1 opacity-100">
             <button
               type="button"
               onClick={handleCopy}
