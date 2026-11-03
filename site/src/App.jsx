@@ -266,7 +266,6 @@ export default function App() {
         }}
         onOpenSettings={() => setSettingsOpen(true)}
         onBulkDelete={requestBulkDelete}
-        onClearSelection={() => setSelected(new Set())}
       />
 
       <div className="mx-auto flex max-w-[1500px] gap-6 px-4 py-5 pb-14">

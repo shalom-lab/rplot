@@ -1,5 +1,8 @@
+import { useRef } from "react";
 import { IconGear, IconGitHub, IconSearch, IconSelect } from "../lib/icons";
 import { REPO_URL } from "../lib/byok";
+
+const DELETE_DEBOUNCE_MS = 600;
 
 export default function Header({
   q,
@@ -9,8 +12,22 @@ export default function Header({
   onToggleSelect,
   onOpenSettings,
   onBulkDelete,
-  onClearSelection,
 }) {
+  const deleteLock = useRef(false);
+
+  function handleDeleteClick() {
+    if (selectedCount === 0) return;
+    if (deleteLock.current) return;
+    deleteLock.current = true;
+    try {
+      onBulkDelete?.();
+    } finally {
+      window.setTimeout(() => {
+        deleteLock.current = false;
+      }, DELETE_DEBOUNCE_MS);
+    }
+  }
+
   return (
     <header className="sticky top-0 z-40 hairline-b bg-[var(--color-canvas)]/92 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-[1500px] items-center gap-3 px-4">
@@ -26,6 +43,41 @@ export default function Header({
               ggplot 精品图书架
             </div>
           </div>
+        </div>
+
+        {/* Left cluster: select + 已选 + 删除 */}
+        <div className="flex shrink-0 items-center gap-2">
+          <button
+            type="button"
+            title={selectMode ? "退出选择模式" : "进入选择模式"}
+            aria-label="选择"
+            aria-pressed={selectMode}
+            onClick={onToggleSelect}
+            className={`ui-btn ui-icon-btn ${
+              selectMode
+                ? "border-[var(--color-coral)]/45 bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]"
+                : ""
+            }`}
+          >
+            <IconSelect className="size-4" checked={selectMode} />
+          </button>
+
+          {selectMode && (
+            <>
+              <span className="tabular-nums text-[12.5px] text-[var(--color-muted)]">
+                已选 {selectedCount}
+              </span>
+              <button
+                type="button"
+                className="ui-btn ui-btn-danger"
+                disabled={selectedCount === 0}
+                onClick={handleDeleteClick}
+                title={selectedCount === 0 ? "请先勾选卡片" : "删除所选"}
+              >
+                删除
+              </button>
+            </>
+          )}
         </div>
 
         <label className="r-search mx-auto flex h-10 w-full max-w-xl items-center gap-2 border border-[var(--color-line-strong)] bg-white px-3.5 shadow-[0_1px_2px_rgba(28,25,23,0.04)] transition focus-within:border-[var(--color-coral)] focus-within:ring-2 focus-within:ring-[var(--color-coral)]/25">
@@ -44,48 +96,6 @@ export default function Header({
         </label>
 
         <div className="flex shrink-0 items-center gap-1.5">
-          {/* Select = checkbox icon only; always visible with gear + octocat */}
-          <button
-            type="button"
-            title={selectMode ? "退出选择模式" : "进入选择模式"}
-            aria-label="选择"
-            aria-pressed={selectMode}
-            onClick={onToggleSelect}
-            className={`ui-btn ui-icon-btn ${
-              selectMode
-                ? "border-[var(--color-coral)]/45 bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]"
-                : ""
-            }`}
-          >
-            <IconSelect className="size-4" checked={selectMode} />
-          </button>
-
-          {selectMode && (
-            <>
-              <span className="hidden tabular-nums text-[12px] text-[var(--color-muted)] sm:inline">
-                已选 {selectedCount}
-              </span>
-              <button
-                type="button"
-                className="ui-btn ui-btn-danger"
-                disabled={selectedCount === 0}
-                onClick={onBulkDelete}
-                title={selectedCount === 0 ? "请先勾选卡片" : "删除所选"}
-              >
-                删除
-              </button>
-              {selectedCount > 0 && (
-                <button
-                  type="button"
-                  className="ui-btn"
-                  onClick={onClearSelection}
-                >
-                  清空
-                </button>
-              )}
-            </>
-          )}
-
           <button
             type="button"
             title="设置 · BYOK"
