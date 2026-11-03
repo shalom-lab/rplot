@@ -83,11 +83,13 @@ export function IconCheck({ className = "size-3.5" }) {
   );
 }
 
-export function IconSelect({ className = "size-4" }) {
+export function IconSelect({ className = "size-4", checked = false }) {
   return (
-    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden>
-      <rect x="2.5" y="2.5" width="11" height="11" rx="2" />
-      <path d="M5.2 8.2l2 2 3.8-4" strokeLinecap="round" strokeLinejoin="round" />
+    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.45" aria-hidden>
+      <rect x="2.5" y="2.5" width="11" height="11" rx="2.2" />
+      {checked ? (
+        <path d="M5.2 8.2l2 2 3.8-4" strokeLinecap="round" strokeLinejoin="round" />
+      ) : null}
     </svg>
   );
 }

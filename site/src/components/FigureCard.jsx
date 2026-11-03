@@ -44,7 +44,7 @@ export default function FigureCard({
 
         {selectMode ? (
           <span
-            className={`absolute left-2 top-2 inline-flex size-7 items-center justify-center rounded-[10px] border backdrop-blur-md ${
+            className={`absolute right-2 top-2 inline-flex size-7 items-center justify-center rounded-[10px] border backdrop-blur-md ${
               selected
                 ? "border-[var(--color-coral)] bg-[var(--color-coral)] text-white"
                 : "border-white/40 bg-white/85 text-stone-500"

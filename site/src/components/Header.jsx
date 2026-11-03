@@ -44,41 +44,45 @@ export default function Header({
         </label>
 
         <div className="flex shrink-0 items-center gap-1.5">
+          {/* Select = checkbox icon only; always visible with gear + octocat */}
           <button
             type="button"
-            title={selectMode ? "退出选择" : "选择"}
+            title={selectMode ? "退出选择模式" : "进入选择模式"}
             aria-label="选择"
             aria-pressed={selectMode}
             onClick={onToggleSelect}
-            className={`ui-btn px-2.5 ${
+            className={`ui-btn ui-icon-btn ${
               selectMode
                 ? "border-[var(--color-coral)]/45 bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]"
                 : ""
             }`}
           >
-            <IconSelect className="size-4" />
-            <span className="text-[12.5px]">选择</span>
+            <IconSelect className="size-4" checked={selectMode} />
           </button>
 
-          {selectMode && selectedCount > 0 && (
+          {selectMode && (
             <>
-              <span className="hidden text-[12px] text-[var(--color-muted)] sm:inline">
+              <span className="hidden tabular-nums text-[12px] text-[var(--color-muted)] sm:inline">
                 已选 {selectedCount}
               </span>
               <button
                 type="button"
                 className="ui-btn ui-btn-danger"
+                disabled={selectedCount === 0}
                 onClick={onBulkDelete}
+                title={selectedCount === 0 ? "请先勾选卡片" : "删除所选"}
               >
                 删除
               </button>
-              <button
-                type="button"
-                className="ui-btn"
-                onClick={onClearSelection}
-              >
-                清空
-              </button>
+              {selectedCount > 0 && (
+                <button
+                  type="button"
+                  className="ui-btn"
+                  onClick={onClearSelection}
+                >
+                  清空
+                </button>
+              )}
             </>
           )}
 
