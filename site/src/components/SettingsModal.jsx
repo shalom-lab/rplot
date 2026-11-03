@@ -58,14 +58,14 @@ export default function SettingsModal({ byok, onClose, onSaved, onCleared, toast
         <>
           <button
             type="button"
-            className="h-7 border border-red-200 bg-red-50 px-2.5 text-red-700 hover:bg-red-100 rounded-sm"
+            className="r-control h-9 border border-red-200 bg-red-50 px-3.5 text-[12px] text-red-700 hover:bg-red-100"
             onClick={handleClear}
           >
             清除
           </button>
           <button
             type="button"
-            className="h-7 border border-slate-200 bg-white px-2.5 text-slate-700 hover:bg-slate-50 rounded-sm"
+            className="r-control h-9 border border-[var(--color-line-strong)] bg-white px-3.5 text-[12px] hover:bg-[var(--color-panel)]"
             onClick={onClose}
           >
             取消
@@ -73,7 +73,7 @@ export default function SettingsModal({ byok, onClose, onSaved, onCleared, toast
           <button
             type="button"
             disabled={saving}
-            className="inline-flex h-7 items-center gap-1.5 border border-sky-700 bg-sky-700 px-2.5 text-white hover:bg-sky-800 disabled:opacity-60 rounded-sm"
+            className="r-control inline-flex h-9 items-center gap-1.5 border border-[var(--color-accent)] bg-[var(--color-accent)] px-3.5 text-[12px] font-medium text-white hover:brightness-95 disabled:opacity-60"
             onClick={handleSave}
           >
             {saving ? <IconSpinner /> : null}
@@ -82,31 +82,36 @@ export default function SettingsModal({ byok, onClose, onSaved, onCleared, toast
         </>
       }
     >
-      <p className="m-0 text-xs text-slate-500">
-        密钥只存本机 <code className="rounded-sm bg-slate-100 px-1">localStorage</code>
-        。可事先注入，启动会自动读取。删除图需要 PAT（Contents 写权限）。
+      <p className="m-0 text-[12.5px] leading-relaxed text-[var(--color-muted)]">
+        密钥只存本机{" "}
+        <code className="rounded-lg bg-[var(--color-panel)] px-1.5 py-px font-mono text-[11px]">
+          localStorage
+        </code>
+        。可事先注入，启动会自动读取。删除图需要 PAT。
       </p>
       <div
-        className={`mt-2.5 border px-2 py-1.5 text-xs rounded-sm ${
+        className={`r-control mt-3 border px-3 py-2 text-[12px] ${
           saved
-            ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-            : "border-amber-200 bg-amber-50 text-amber-900"
+            ? "border-emerald-200 bg-emerald-50/80 text-emerald-900"
+            : "border-amber-200 bg-amber-50/80 text-amber-950"
         }`}
       >
         {saved ? (
           <>
-            已保存 · repo <code>{byok.repo}</code> · token {maskToken(byok.token)}
+            已保存 · repo{" "}
+            <code className="font-mono text-[11px]">{byok.repo}</code> · token{" "}
+            {maskToken(byok.token)}
           </>
         ) : (
-          "未设置 — 浏览/星标无需密钥；删除前请配置"
+          "未设置 — 浏览 / 星标无需密钥；删除前请配置"
         )}
       </div>
-      <label className="mt-3 block">
-        <span className="mb-1 block text-xs text-slate-500">
-          <code>gh-rplot-repo</code>（owner/name）
+      <label className="mt-4 block">
+        <span className="mb-1.5 block text-[11px] font-medium uppercase tracking-wide text-[var(--color-muted)]">
+          gh-rplot-repo
         </span>
         <input
-          className="h-8 w-full border border-slate-200 bg-slate-50 px-2 outline-none focus:border-sky-400 focus:bg-white focus:ring-2 focus:ring-sky-100 rounded-sm"
+          className="r-control h-10 w-full border border-[var(--color-line-strong)] bg-[var(--color-panel)] px-3 font-mono text-[12.5px] outline-none transition focus:border-[var(--color-coral)] focus:bg-white focus:ring-2 focus:ring-[var(--color-coral)]/25"
           value={repo}
           placeholder={DEFAULT_REPO}
           spellCheck={false}
@@ -114,13 +119,13 @@ export default function SettingsModal({ byok, onClose, onSaved, onCleared, toast
           onChange={(e) => setRepo(e.target.value)}
         />
       </label>
-      <label className="mt-2.5 block">
-        <span className="mb-1 block text-xs text-slate-500">
-          <code>gh-rplot-token</code>（PAT）
+      <label className="mt-3 block">
+        <span className="mb-1.5 block text-[11px] font-medium uppercase tracking-wide text-[var(--color-muted)]">
+          gh-rplot-token
         </span>
         <input
           type="password"
-          className="h-8 w-full border border-slate-200 bg-slate-50 px-2 outline-none focus:border-sky-400 focus:bg-white focus:ring-2 focus:ring-sky-100 rounded-sm"
+          className="r-control h-10 w-full border border-[var(--color-line-strong)] bg-[var(--color-panel)] px-3 font-mono text-[12.5px] outline-none transition focus:border-[var(--color-coral)] focus:bg-white focus:ring-2 focus:ring-[var(--color-coral)]/25"
           value={token}
           placeholder="ghp_… 或 github_pat_…"
           spellCheck={false}
@@ -128,9 +133,6 @@ export default function SettingsModal({ byok, onClose, onSaved, onCleared, toast
           onChange={(e) => setToken(e.target.value)}
         />
       </label>
-      <p className="mt-2.5 mb-0 text-xs text-slate-500">
-        保存时会先测连 GitHub API，通过才写入。清除需二次确认。
-      </p>
     </ModalShell>
   );
 }

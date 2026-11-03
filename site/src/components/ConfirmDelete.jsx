@@ -9,14 +9,14 @@ export default function ConfirmDelete({ fig, onCancel, onConfirm }) {
         <>
           <button
             type="button"
-            className="h-7 border border-slate-200 bg-white px-2.5 text-slate-700 hover:bg-slate-50 rounded-sm"
+            className="r-control h-9 border border-[var(--color-line-strong)] bg-white px-3.5 text-[12px] hover:bg-[var(--color-panel)]"
             onClick={onCancel}
           >
             取消
           </button>
           <button
             type="button"
-            className="h-7 border border-red-300 bg-red-50 px-2.5 text-red-700 hover:bg-red-100 rounded-sm"
+            className="r-control h-9 border border-red-600 bg-red-600 px-3.5 text-[12px] font-medium text-white hover:bg-red-700"
             onClick={onConfirm}
           >
             确认删除
@@ -24,17 +24,13 @@ export default function ConfirmDelete({ fig, onCancel, onConfirm }) {
         </>
       }
     >
-      <p className="m-0 text-xs text-slate-500">将通过 GitHub Contents API：</p>
-      <ol className="mt-1.5 mb-0 list-decimal pl-4 text-xs text-slate-500">
-        <li>
-          从 <code>catalog.json</code> 移除该条目
-        </li>
-        <li>
-          删除图片 <code>{fig.file}</code>
-        </li>
-      </ol>
-      <p className="mt-2.5 mb-0 text-[13px] font-semibold text-slate-900">{fig.title}</p>
-      <p className="mt-1.5 mb-0 text-xs text-slate-500">操作不可轻易撤销，请确认。</p>
+      <p className="m-0 text-[12.5px] text-[var(--color-muted)]">
+        将更新 <code className="font-mono text-[11px]">catalog.json</code> 并删除{" "}
+        <code className="font-mono text-[11px]">{fig.file}</code>
+      </p>
+      <p className="mt-3 mb-0 text-[13.5px] font-semibold text-[var(--color-ink)]">
+        {fig.title}
+      </p>
     </ModalShell>
   );
 }

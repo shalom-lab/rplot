@@ -1,19 +1,19 @@
 export function IconSearch({ className = "size-3.5" }) {
   return (
-    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
       <circle cx="7" cy="7" r="4.5" />
-      <path d="M10.5 10.5L14 14" />
+      <path d="M10.5 10.5L14 14" strokeLinecap="round" />
     </svg>
   );
 }
 
 export function IconGear({ className = "size-4" }) {
   return (
-    <svg className={className} viewBox="0 0 16 16" fill="currentColor" aria-hidden>
-      <path d="M8 5.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z" />
+    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden>
+      <circle cx="8" cy="8" r="2.2" />
       <path
-        fillRule="evenodd"
-        d="M7.1 1.2a1 1 0 011.8 0l.2.5a5.6 5.6 0 011.5.6l.5-.2a1 1 0 011.3.5l.4.8a1 1 0 01-.3 1.2l-.3.3c.1.5.1 1 .1 1.5l.3.3a1 1 0 01.3 1.2l-.4.8a1 1 0 01-1.3.5l-.5-.2a5.6 5.6 0 01-1.5.6l-.2.5a1 1 0 01-1.8 0l-.2-.5a5.6 5.6 0 01-1.5-.6l-.5.2a1 1 0 01-1.3-.5l-.4-.8a1 1 0 01.3-1.2l.3-.3a5.7 5.7 0 01-.1-1.5l-.3-.3a1 1 0 01-.3-1.2l.4-.8a1 1 0 011.3-.5l.5.2a5.6 5.6 0 011.5-.6l.2-.5zM8 10.2a2.2 2.2 0 100-4.4 2.2 2.2 0 000 4.4z"
+        strokeLinecap="round"
+        d="M8 1.6v1.4M8 13v1.4M1.6 8h1.4M13 8h1.4M3.2 3.2l1 1M11.8 11.8l1 1M3.2 12.8l1-1M11.8 4.2l1-1"
       />
     </svg>
   );
@@ -23,18 +23,17 @@ export function IconStar({ filled = false, className = "size-3.5" }) {
   if (filled) {
     return (
       <svg className={className} viewBox="0 0 16 16" fill="currentColor" aria-hidden>
-        <path d="M8 1.5l1.7 3.5 3.8.6-2.7 2.7.6 3.8L8 10.3l-3.4 1.8.6-3.8L2.5 5.6l3.8-.6L8 1.5z" />
+        <path d="M8 1.8l1.55 3.14 3.47.5-2.51 2.45.59 3.45L8 9.72 4.9 11.34l.59-3.45L2.98 5.44l3.47-.5L8 1.8z" />
       </svg>
     );
   }
   return (
-    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden>
-      <path d="M8 2.2l1.5 3.1 3.4.5-2.5 2.4.6 3.4L8 9.9 4.9 11.6l.6-3.4L3 5.8l3.4-.5L8 2.2z" />
+    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.35" aria-hidden>
+      <path d="M8 2.2l1.45 2.94 3.25.47-2.35 2.3.56 3.24L8 9.7 5.09 11.15l.56-3.24L3.3 5.61l3.25-.47L8 2.2z" />
     </svg>
   );
 }
 
-/** Official GitHub Mark (octocat silhouette) */
 export function IconGitHub({ className = "size-4" }) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="currentColor" aria-hidden>
@@ -45,8 +44,18 @@ export function IconGitHub({ className = "size-4" }) {
 
 export function IconX({ className = "size-4" }) {
   return (
-    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
-      <path d="M4 4l8 8M12 4l-8 8" />
+    <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+      <path d="M4 4l8 8M12 4l-8 8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function IconMore({ className = "size-4" }) {
+  return (
+    <svg className={className} viewBox="0 0 16 16" fill="currentColor" aria-hidden>
+      <circle cx="3.5" cy="8" r="1.25" />
+      <circle cx="8" cy="8" r="1.25" />
+      <circle cx="12.5" cy="8" r="1.25" />
     </svg>
   );
 }
@@ -54,8 +63,18 @@ export function IconX({ className = "size-4" }) {
 export function IconSpinner({ className = "size-3.5" }) {
   return (
     <svg className={`animate-spin ${className}`} viewBox="0 0 16 16" fill="none" aria-hidden>
-      <circle cx="8" cy="8" r="6" stroke="currentColor" strokeOpacity="0.25" strokeWidth="2" />
+      <circle cx="8" cy="8" r="6" stroke="currentColor" strokeOpacity="0.22" strokeWidth="2" />
       <path d="M14 8a6 6 0 00-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function IconImage({ className = "size-8" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <circle cx="9" cy="10" r="1.6" />
+      <path d="M4.5 17.5l4.2-4.2a1.2 1.2 0 011.7 0L14 17l2.2-2.2a1.2 1.2 0 011.7 0l2.1 2.1" strokeLinecap="round" />
     </svg>
   );
 }

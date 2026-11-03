@@ -2,74 +2,56 @@ import { IconGear, IconGitHub, IconSearch, IconStar } from "../lib/icons";
 import { REPO_URL } from "../lib/byok";
 
 export default function Header({
-  categories,
-  category,
   q,
   starredOnly,
-  shown,
-  total,
-  onCategory,
   onQuery,
   onToggleStarred,
   onOpenSettings,
 }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 shadow-sm backdrop-blur">
-      <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-2 px-3 py-2">
-        <div className="flex shrink-0 items-baseline gap-1.5 pr-1">
-          <h1 className="m-0 text-[15px] font-bold tracking-tight text-slate-900">
-            rplot
-          </h1>
-          <span className="hidden text-xs text-slate-500 sm:inline">
-            ggplot 精品图 · 工具站
-          </span>
-        </div>
-
-        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
-          <div className="flex max-w-full flex-wrap gap-1">
-            <Chip active={category === "all"} onClick={() => onCategory("all")}>
-              全部
-            </Chip>
-            {categories.map((c) => (
-              <Chip
-                key={c}
-                active={category === c}
-                onClick={() => onCategory(c)}
-              >
-                {c}
-              </Chip>
-            ))}
+    <header className="sticky top-0 z-40 border-b border-[var(--color-line)]/80 bg-[var(--color-canvas)]/90 backdrop-blur-md">
+      <div className="mx-auto flex h-14 max-w-[1500px] items-center gap-3 px-4">
+        <div className="flex shrink-0 items-center gap-2">
+          <div className="flex size-8 items-center justify-center rounded-[12px] bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]">
+            <span className="text-[13px] font-bold tracking-tight">R</span>
           </div>
-
-          <label className="flex h-7 min-w-[160px] max-w-[280px] flex-1 items-center gap-1.5 border border-slate-200 bg-slate-50 px-2 rounded-sm focus-within:border-sky-400 focus-within:bg-white focus-within:ring-2 focus-within:ring-sky-100">
-            <IconSearch className="size-3.5 shrink-0 text-slate-400" />
-            <input
-              type="search"
-              value={q}
-              onChange={(e) => onQuery(e.target.value)}
-              placeholder="关键词：标题 / 标签 / 备注"
-              className="w-full min-w-0 border-0 bg-transparent outline-none placeholder:text-slate-400"
-              autoComplete="off"
-            />
-          </label>
-
-          <span className="shrink-0 tabular-nums text-xs text-slate-500">
-            {shown} / {total}
-          </span>
+          <div className="leading-tight">
+            <div className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
+              rplot
+            </div>
+            <div className="hidden text-[11px] text-[var(--color-muted)] sm:block">
+              ggplot 精品图书架
+            </div>
+          </div>
         </div>
 
-        <div className="ml-auto flex shrink-0 items-center gap-0.5">
+        <label className="r-search mx-auto flex h-10 w-full max-w-xl items-center gap-2 border border-[var(--color-line-strong)] bg-white px-3.5 shadow-[0_1px_2px_rgba(28,25,23,0.04)] transition focus-within:border-[var(--color-coral)] focus-within:ring-2 focus-within:ring-[var(--color-coral)]/25">
+          <IconSearch className="size-4 shrink-0 text-[var(--color-muted)]" />
+          <input
+            type="search"
+            value={q}
+            onChange={(e) => onQuery(e.target.value)}
+            placeholder="搜索标题、标签、备注…"
+            className="w-full min-w-0 border-0 bg-transparent text-[13px] outline-none placeholder:text-stone-400"
+            autoComplete="off"
+          />
+          <kbd className="hidden shrink-0 rounded-lg border border-[var(--color-line)] bg-[var(--color-panel)] px-1.5 py-0.5 font-mono text-[10px] text-stone-400 sm:inline">
+            /
+          </kbd>
+        </label>
+
+        <div className="flex shrink-0 items-center gap-1">
           <button
             type="button"
             title="仅看星标"
             aria-label="仅看星标"
+            aria-pressed={starredOnly}
             onClick={onToggleStarred}
-            className={`inline-flex size-7.5 items-center justify-center rounded-sm border ${
+            className={`inline-flex size-9 items-center justify-center rounded-[12px] transition ${
               starredOnly
-                ? "border-amber-300 bg-amber-50 text-amber-700"
-                : "border-transparent text-slate-500 hover:border-slate-200 hover:bg-slate-50 hover:text-slate-800"
+                ? "bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]"
+                : "text-[var(--color-muted)] hover:bg-white/70 hover:text-[var(--color-ink)]"
             }`}
-            style={{ width: 30, height: 30 }}
           >
             <IconStar filled={starredOnly} className="size-4" />
           </button>
@@ -78,10 +60,9 @@ export default function Header({
             title="BYOK 设置"
             aria-label="设置"
             onClick={onOpenSettings}
-            className="inline-flex items-center justify-center border border-transparent text-slate-500 hover:border-slate-200 hover:bg-slate-50 hover:text-slate-800 rounded-sm"
-            style={{ width: 30, height: 30 }}
+            className="inline-flex size-9 items-center justify-center rounded-[12px] text-[var(--color-muted)] transition hover:bg-white/70 hover:text-[var(--color-ink)]"
           >
-            <IconGear />
+            <IconGear className="size-4" />
           </button>
           <a
             href={REPO_URL}
@@ -89,29 +70,12 @@ export default function Header({
             rel="noopener noreferrer"
             title="GitHub 仓库"
             aria-label="GitHub 仓库"
-            className="inline-flex items-center justify-center border border-transparent text-slate-500 hover:border-slate-200 hover:bg-slate-50 hover:text-slate-900 rounded-sm"
-            style={{ width: 30, height: 30 }}
+            className="inline-flex size-9 items-center justify-center rounded-[12px] text-[var(--color-muted)] transition hover:bg-white/70 hover:text-[var(--color-ink)]"
           >
-            <IconGitHub />
+            <IconGitHub className="size-4" />
           </a>
         </div>
       </div>
     </header>
-  );
-}
-
-function Chip({ active, onClick, children }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`h-6 whitespace-nowrap border px-2 text-xs rounded-sm ${
-        active
-          ? "border-sky-300 bg-sky-50 font-semibold text-sky-800"
-          : "border-slate-200 bg-slate-50 text-slate-500 hover:border-slate-300 hover:text-slate-800"
-      }`}
-    >
-      {children}
-    </button>
   );
 }
