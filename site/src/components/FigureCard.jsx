@@ -28,7 +28,7 @@ export default function FigureCard({
     >
       <button
         type="button"
-        className={`relative block w-full overflow-hidden bg-[#ebe4d8] text-left ${
+        className={`relative block w-full overflow-hidden bg-white text-left leading-none ${
           selectMode ? "cursor-pointer" : "cursor-zoom-in"
         }`}
         onClick={handleCardClick}
@@ -38,12 +38,13 @@ export default function FigureCard({
           src={assetUrl(fig.file)}
           alt={fig.title}
           loading="lazy"
-          className="block h-auto w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+          className="m-0 block h-auto w-full max-w-full align-top transition duration-300 group-hover:scale-[1.015]"
+          style={{ verticalAlign: "top" }}
         />
 
         {selectMode ? (
           <span
-            className={`absolute left-2.5 top-2.5 inline-flex size-7 items-center justify-center rounded-[10px] border backdrop-blur-md ${
+            className={`absolute left-2 top-2 inline-flex size-7 items-center justify-center rounded-[10px] border backdrop-blur-md ${
               selected
                 ? "border-[var(--color-coral)] bg-[var(--color-coral)] text-white"
                 : "border-white/40 bg-white/85 text-stone-500"
@@ -54,7 +55,7 @@ export default function FigureCard({
           </span>
         ) : (
           <span
-            className={`absolute right-2.5 top-2.5 inline-flex ${
+            className={`absolute right-2 top-2 inline-flex ${
               starred
                 ? "opacity-100"
                 : "opacity-0 group-hover:opacity-100 focus-within:opacity-100"
@@ -80,11 +81,11 @@ export default function FigureCard({
         )}
       </button>
 
-      <div className="flex flex-1 flex-col gap-1 px-3.5 py-3">
-        <h3 className="m-0 line-clamp-2 text-[13.5px] font-semibold leading-snug text-[var(--color-ink)]">
+      <div className="flex flex-col gap-0.5 px-3 py-2.5">
+        <h3 className="m-0 line-clamp-2 text-[13px] font-semibold leading-snug text-[var(--color-ink)]">
           {fig.title}
         </h3>
-        <p className="m-0 truncate text-[12px] text-[var(--color-muted)]">
+        <p className="m-0 truncate text-[11.5px] leading-snug text-[var(--color-muted)]">
           {fig.category}
           {fig.tags?.length ? ` · ${fig.tags.slice(0, 2).join(" · ")}` : ""}
         </p>
