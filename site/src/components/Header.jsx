@@ -1,12 +1,15 @@
-import { IconGear, IconGitHub, IconSearch, IconStar } from "../lib/icons";
+import { IconGear, IconGitHub, IconSearch, IconSelect } from "../lib/icons";
 import { REPO_URL } from "../lib/byok";
 
 export default function Header({
   q,
-  starredOnly,
+  selectMode,
+  selectedCount = 0,
   onQuery,
-  onToggleStarred,
+  onToggleSelect,
   onOpenSettings,
+  onBulkDelete,
+  onClearSelection,
 }) {
   return (
     <header className="sticky top-0 z-40 hairline-b bg-[var(--color-canvas)]/92 backdrop-blur-md">
@@ -43,29 +46,50 @@ export default function Header({
         <div className="flex shrink-0 items-center gap-1.5">
           <button
             type="button"
-            title="仅看星标"
-            aria-label="仅看星标"
-            aria-pressed={starredOnly}
-            onClick={onToggleStarred}
-            className={`ui-btn ui-icon-btn ${
-              starredOnly
-                ? "border-[var(--color-coral)]/40 bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]"
+            title={selectMode ? "退出选择" : "选择"}
+            aria-label="选择"
+            aria-pressed={selectMode}
+            onClick={onToggleSelect}
+            className={`ui-btn px-2.5 ${
+              selectMode
+                ? "border-[var(--color-coral)]/45 bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]"
                 : ""
             }`}
           >
-            <IconStar filled={starredOnly} className="size-4" />
+            <IconSelect className="size-4" />
+            <span className="text-[12.5px]">选择</span>
           </button>
 
-          {/* Clear, visible settings entry */}
+          {selectMode && selectedCount > 0 && (
+            <>
+              <span className="hidden text-[12px] text-[var(--color-muted)] sm:inline">
+                已选 {selectedCount}
+              </span>
+              <button
+                type="button"
+                className="ui-btn ui-btn-danger"
+                onClick={onBulkDelete}
+              >
+                删除
+              </button>
+              <button
+                type="button"
+                className="ui-btn"
+                onClick={onClearSelection}
+              >
+                清空
+              </button>
+            </>
+          )}
+
           <button
             type="button"
             title="设置 · BYOK"
             aria-label="设置"
             onClick={onOpenSettings}
-            className="ui-btn border-[var(--color-line-strong)] bg-white px-2.5 shadow-[0_1px_2px_rgba(28,25,23,0.04)] hover:border-[var(--color-coral)]/50 hover:bg-[var(--color-coral-soft)]/60"
+            className="ui-btn ui-icon-btn"
           >
             <IconGear className="size-[18px]" />
-            <span className="hidden sm:inline">设置</span>
           </button>
 
           <a

@@ -1,109 +1,83 @@
-import { useEffect, useRef, useState } from "react";
-import { IconMore, IconSpinner, IconStar } from "../lib/icons";
+import { IconCheck, IconStar } from "../lib/icons";
 import { assetUrl } from "../lib/byok";
 
 export default function FigureCard({
   fig,
   starred,
-  deleting,
+  selectMode,
+  selected,
   onStar,
-  onDelete,
+  onToggleSelect,
   onOpen,
 }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef(null);
-
-  useEffect(() => {
-    if (!menuOpen) return;
-    function onDoc(e) {
-      if (!menuRef.current?.contains(e.target)) setMenuOpen(false);
+  function handleCardClick() {
+    if (selectMode) {
+      onToggleSelect?.(fig.id);
+      return;
     }
-    function onKey(e) {
-      if (e.key === "Escape") setMenuOpen(false);
-    }
-    document.addEventListener("mousedown", onDoc);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onDoc);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [menuOpen]);
+    onOpen(fig);
+  }
 
   return (
-    <article className="group relative flex flex-col overflow-hidden border border-[var(--color-line)] bg-[var(--color-card)] shadow-[0_1px_2px_rgba(28,25,23,0.03)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(28,25,23,0.08)] r-card">
+    <article
+      className={`group relative flex flex-col overflow-hidden border bg-[var(--color-card)] shadow-[0_1px_2px_rgba(28,25,23,0.03)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(28,25,23,0.08)] r-card ${
+        selected
+          ? "border-[var(--color-coral)] ring-2 ring-[var(--color-coral)]/30"
+          : "border-[var(--color-line)]"
+      }`}
+    >
       <button
         type="button"
-        className="relative block w-full cursor-zoom-in overflow-hidden bg-[#ebe4d8] text-left"
-        onClick={() => onOpen(fig)}
-        title="放大预览"
+        className={`relative block w-full overflow-hidden bg-[#ebe4d8] text-left ${
+          selectMode ? "cursor-pointer" : "cursor-zoom-in"
+        }`}
+        onClick={handleCardClick}
+        title={selectMode ? (selected ? "取消选择" : "选择此图") : "放大预览"}
       >
         <img
           src={assetUrl(fig.file)}
           alt={fig.title}
           loading="lazy"
-          className="block w-full h-auto object-cover transition duration-300 group-hover:scale-[1.02]"
+          className="block h-auto w-full object-cover transition duration-300 group-hover:scale-[1.02]"
         />
 
-        <div className="absolute right-2.5 top-2.5 flex items-center gap-1.5">
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              onStar(fig.id);
-            }}
-            title={starred ? "取消星标" : "星标"}
-            className={`inline-flex size-8 items-center justify-center rounded-[12px] border backdrop-blur-md transition ${
-              starred
-                ? "border-amber-200/50 bg-amber-50/95 text-amber-700 opacity-100"
-                : "border-white/30 bg-white/80 text-stone-600 opacity-0 group-hover:opacity-100 hover:bg-white"
+        {selectMode ? (
+          <span
+            className={`absolute left-2.5 top-2.5 inline-flex size-7 items-center justify-center rounded-[10px] border backdrop-blur-md ${
+              selected
+                ? "border-[var(--color-coral)] bg-[var(--color-coral)] text-white"
+                : "border-white/40 bg-white/85 text-stone-500"
             }`}
+            aria-hidden
           >
-            <IconStar filled={starred} className="size-3.5" />
-          </button>
-
-          <div
-            className="relative opacity-0 transition group-hover:opacity-100 group-focus-within:opacity-100"
-            ref={menuRef}
+            {selected ? <IconCheck className="size-3.5" /> : null}
+          </span>
+        ) : (
+          <span
+            className={`absolute right-2.5 top-2.5 inline-flex ${
+              starred
+                ? "opacity-100"
+                : "opacity-0 group-hover:opacity-100 focus-within:opacity-100"
+            } transition`}
           >
             <button
               type="button"
-              title="更多"
-              aria-haspopup="menu"
-              aria-expanded={menuOpen}
               onClick={(e) => {
                 e.stopPropagation();
-                setMenuOpen((v) => !v);
+                onStar(fig.id);
               }}
-              className="inline-flex size-8 items-center justify-center rounded-[12px] border border-white/30 bg-white/80 text-stone-600 backdrop-blur-md hover:bg-white"
+              title={starred ? "取消星标" : "加星标"}
+              aria-label={starred ? "取消星标" : "加星标"}
+              className={`inline-flex size-8 items-center justify-center rounded-[12px] border backdrop-blur-md transition ${
+                starred
+                  ? "border-amber-200/55 bg-amber-50/95 text-amber-700"
+                  : "border-white/30 bg-white/85 text-stone-600 hover:bg-white"
+              }`}
             >
-              {deleting ? (
-                <IconSpinner className="size-3.5" />
-              ) : (
-                <IconMore className="size-3.5" />
-              )}
+              <IconStar filled={starred} className="size-3.5" />
             </button>
-            {menuOpen && (
-              <div
-                role="menu"
-                className="absolute right-0 top-[calc(100%+6px)] z-20 min-w-[128px] overflow-hidden border border-[var(--color-line)] bg-white py-1 shadow-lg r-control"
-              >
-                <button
-                  type="button"
-                  role="menuitem"
-                  disabled={deleting}
-                  className="flex w-full items-center px-3 py-2 text-left text-[12px] text-[var(--color-danger)] hover:bg-red-50 disabled:opacity-50"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setMenuOpen(false);
-                    onDelete(fig);
-                  }}
-                >
-                  {deleting ? "删除中…" : "删除此图"}
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
+          </span>
+        )}
       </button>
 
       <div className="flex flex-1 flex-col gap-1 px-3.5 py-3">

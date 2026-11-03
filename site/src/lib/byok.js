@@ -153,3 +153,72 @@ export async function deleteFigureRemote({ repo, token, fig, catalog }) {
   void catalog;
   return data;
 }
+
+export async function deleteFiguresRemote({ repo, token, figs }) {
+  if (!figs?.length) throw new Error("未选择要删除的图");
+  const ids = new Set(figs.map((f) => f.id));
+  const catalogMeta = await getContent(repo, token, "catalog.json");
+  const raw = decodeURIComponent(
+    escape(atob(catalogMeta.content.replace(/\n/g, "")))
+  );
+  const data = JSON.parse(raw);
+  const before = data.figures?.length || 0;
+  data.figures = (data.figures || []).filter((x) => !ids.has(x.id));
+  const removed = before - data.figures.length;
+  if (removed === 0) {
+    throw new Error("catalog 中未找到所选条目（可能已被删除）");
+  }
+  data.figure_count = data.figures.length;
+  data.updated = new Date().toISOString().slice(0, 10);
+  data.categories = [
+    ...new Set(data.figures.map((x) => x.category).filter(Boolean)),
+  ].sort();
+
+  const [owner, name] = repo.split("/");
+  const idList = [...ids].slice(0, 8).join(", ");
+  const putRes = await fetch(
+    `https://api.github.com/repos/${owner}/${name}/contents/catalog.json`,
+    {
+      method: "PUT",
+      headers: { ...headers(token), "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: `chore(rplot): remove ${removed} figure(s) from catalog (${idList}${ids.size > 8 ? ", …" : ""})`,
+        content: utf8ToBase64(JSON.stringify(data, null, 2) + "\n"),
+        sha: catalogMeta.sha,
+        branch: "main",
+      }),
+    }
+  );
+  if (!putRes.ok) {
+    if (putRes.status === 401 || putRes.status === 403) {
+      throw new Error("写入失败：鉴权或权限不足");
+    }
+    throw new Error(`写入 catalog.json 失败（${putRes.status}）`);
+  }
+
+  for (const fig of figs) {
+    try {
+      const imgMeta = await getContent(repo, token, fig.file);
+      const delRes = await fetch(
+        `https://api.github.com/repos/${owner}/${name}/contents/${fig.file}`,
+        {
+          method: "DELETE",
+          headers: { ...headers(token), "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: `chore(rplot): delete figure image ${fig.file}`,
+            sha: imgMeta.sha,
+            branch: "main",
+          }),
+        }
+      );
+      if (!delRes.ok && delRes.status !== 404) {
+        throw new Error(`删除 ${fig.file} 失败（${delRes.status}）`);
+      }
+    } catch (err) {
+      if (String(err.message || "").includes("404")) continue;
+      throw err;
+    }
+  }
+
+  return data;
+}

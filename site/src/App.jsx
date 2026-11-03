@@ -3,13 +3,13 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import FigureCard from "./components/FigureCard";
 import SettingsModal from "./components/SettingsModal";
-import ConfirmDelete from "./components/ConfirmDelete";
+import ConfirmDialog from "./components/ConfirmDialog";
 import Lightbox from "./components/Lightbox";
 import Toast from "./components/Toast";
 import { IconImage } from "./lib/icons";
 import {
   assetUrl,
-  deleteFigureRemote,
+  deleteFiguresRemote,
   readByok,
   readFavorites,
   writeFavorites,
@@ -25,9 +25,12 @@ export default function App() {
   const [q, setQ] = useState("");
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [lightbox, setLightbox] = useState(null);
-  const [pendingDelete, setPendingDelete] = useState(null);
-  const [busyId, setBusyId] = useState(null);
   const [toast, setToast] = useState(null);
+
+  const [selectMode, setSelectMode] = useState(false);
+  const [selected, setSelected] = useState(() => new Set());
+  const [bulkStep, setBulkStep] = useState(0); // 0 none, 1 first confirm, 2 second confirm
+  const [bulkBusy, setBulkBusy] = useState(false);
 
   const starredOnly = category === "__starred__";
 
@@ -57,10 +60,15 @@ export default function App() {
         e.preventDefault();
         document.querySelector('input[type="search"]')?.focus();
       }
+      if (e.key === "Escape" && selectMode) {
+        setSelectMode(false);
+        setSelected(new Set());
+        setBulkStep(0);
+      }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [selectMode]);
 
   const counts = useMemo(() => {
     const map = { __starred__: favorites.size };
@@ -103,7 +111,9 @@ export default function App() {
   }, [catalog, q, category, tag, starredOnly, favorites]);
 
   const heading = useMemo(() => {
-    if (starredOnly) return { title: "星标收藏", sub: "本机收藏的图，仅存在浏览器 localStorage" };
+    if (starredOnly) {
+      return { title: "星标收藏", sub: "本机收藏的图，仅存在浏览器 localStorage" };
+    }
     if (category === "all") {
       return {
         title: "全部图集",
@@ -116,6 +126,11 @@ export default function App() {
     };
   }, [category, starredOnly, counts]);
 
+  const selectedFigs = useMemo(() => {
+    if (!catalog) return [];
+    return catalog.figures.filter((f) => selected.has(f.id));
+  }, [catalog, selected]);
+
   function toggleStar(id) {
     setFavorites((prev) => {
       const next = new Set(prev);
@@ -126,7 +141,26 @@ export default function App() {
     });
   }
 
-  function requestDelete(fig) {
+  function toggleSelectId(id) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  function exitSelectMode() {
+    setSelectMode(false);
+    setSelected(new Set());
+    setBulkStep(0);
+  }
+
+  function requestBulkDelete() {
+    if (selected.size === 0) {
+      showToast("请先选择要删除的图", true);
+      return;
+    }
     if (!(byok.repo && byok.token)) {
       showToast(
         "删除需要 BYOK：请先点齿轮配置 gh-rplot-repo / gh-rplot-token",
@@ -135,33 +169,31 @@ export default function App() {
       setSettingsOpen(true);
       return;
     }
-    setPendingDelete(fig);
+    setBulkStep(1);
   }
 
-  async function confirmDelete() {
-    const fig = pendingDelete;
-    setPendingDelete(null);
-    if (!fig) return;
-    setBusyId(fig.id);
+  async function runBulkDelete() {
+    setBulkBusy(true);
     try {
-      const data = await deleteFigureRemote({
+      const data = await deleteFiguresRemote({
         repo: byok.repo,
         token: byok.token,
-        fig,
-        catalog,
+        figs: selectedFigs,
       });
       setCatalog(data);
       setFavorites((prev) => {
         const next = new Set(prev);
-        next.delete(fig.id);
+        for (const id of selected) next.delete(id);
         writeFavorites(next);
         return next;
       });
-      showToast(`已删除 ${fig.id}`);
+      showToast(`已删除 ${selectedFigs.length} 张图`);
+      exitSelectMode();
     } catch (err) {
-      showToast(err.message || "删除失败", true);
+      showToast(err.message || "批量删除失败", true);
+      setBulkStep(0);
     } finally {
-      setBusyId(null);
+      setBulkBusy(false);
     }
   }
 
@@ -201,7 +233,10 @@ export default function App() {
           </div>
           <div className="masonry flex-1">
             {[220, 280, 240, 300, 260, 230, 290, 250, 270, 210].map((h, i) => (
-              <div key={i} className="masonry-item overflow-hidden border border-[var(--color-line)] r-card">
+              <div
+                key={i}
+                className="masonry-item overflow-hidden border border-[var(--color-line)] r-card"
+              >
                 <div className="skeleton w-full" style={{ height: h }} />
                 <div className="space-y-2 p-3">
                   <div className="skeleton h-3.5 w-4/5 r-chip" />
@@ -219,12 +254,19 @@ export default function App() {
     <div className="min-h-screen bg-[var(--color-canvas)]">
       <Header
         q={q}
-        starredOnly={starredOnly}
+        selectMode={selectMode}
+        selectedCount={selected.size}
         onQuery={setQ}
-        onToggleStarred={() =>
-          setCategory((c) => (c === "__starred__" ? "all" : "__starred__"))
-        }
+        onToggleSelect={() => {
+          if (selectMode) exitSelectMode();
+          else {
+            setSelectMode(true);
+            setSelected(new Set());
+          }
+        }}
         onOpenSettings={() => setSettingsOpen(true)}
+        onBulkDelete={requestBulkDelete}
+        onClearSelection={() => setSelected(new Set())}
       />
 
       <div className="mx-auto flex max-w-[1500px] gap-6 px-4 py-5 pb-14">
@@ -235,9 +277,6 @@ export default function App() {
           total={catalog.figures.length}
           onCategory={onSidebarCategory}
         />
-
-        {/* Mobile category chips */}
-        <div className="hidden" />
 
         <main className="min-w-0 flex-1">
           <div className="mb-4 md:hidden">
@@ -264,17 +303,19 @@ export default function App() {
             </div>
           </div>
 
-          <div className="mb-4">
-            <h2 className="m-0 text-[22px] font-semibold tracking-tight text-[var(--color-ink)]">
-              {heading.title}
-            </h2>
-            <p className="mt-1 mb-0 text-[13px] text-[var(--color-muted)]">
-              {heading.sub}
-              <span className="mx-1.5 text-stone-300">·</span>
-              <span className="font-mono text-[12px]">
-                {figures.length} 张
-              </span>
-            </p>
+          <div className="mb-4 flex flex-wrap items-end justify-between gap-2">
+            <div>
+              <h2 className="m-0 text-[22px] font-semibold tracking-tight text-[var(--color-ink)]">
+                {heading.title}
+              </h2>
+              <p className="mt-1 mb-0 text-[13px] text-[var(--color-muted)]">
+                {selectMode
+                  ? `选择模式 · 已选 ${selected.size} 张 · Esc 退出`
+                  : heading.sub}
+                <span className="mx-1.5 text-stone-300">·</span>
+                <span className="font-mono text-[12px]">{figures.length} 张</span>
+              </p>
+            </div>
           </div>
 
           {popularTags.length > 0 && (
@@ -308,9 +349,10 @@ export default function App() {
                   <FigureCard
                     fig={fig}
                     starred={favorites.has(fig.id)}
-                    deleting={busyId === fig.id}
+                    selectMode={selectMode}
+                    selected={selected.has(fig.id)}
                     onStar={toggleStar}
-                    onDelete={requestDelete}
+                    onToggleSelect={toggleSelectId}
                     onOpen={setLightbox}
                   />
                 </div>
@@ -352,14 +394,54 @@ export default function App() {
           toast={showToast}
         />
       )}
-      {pendingDelete && (
-        <ConfirmDelete
-          fig={pendingDelete}
-          onCancel={() => setPendingDelete(null)}
-          onConfirm={confirmDelete}
-        />
+
+      {bulkStep === 1 && (
+        <ConfirmDialog
+          title="确认删除所选图？"
+          danger
+          confirmLabel="继续"
+          cancelLabel="取消"
+          onCancel={() => setBulkStep(0)}
+          onConfirm={() => setBulkStep(2)}
+        >
+          <p className="m-0">
+            已选择 <strong>{selectedFigs.length}</strong> 张图。下一步将再次确认后，通过
+            GitHub Contents API 更新{" "}
+            <code className="rounded-[6px] bg-[var(--color-panel)] px-1 font-mono text-[11.5px] text-[var(--color-ink)]">
+              catalog.json
+            </code>{" "}
+            并删除对应图片文件。
+          </p>
+          <ul className="mt-3 mb-0 max-h-40 list-disc overflow-auto pl-5 text-[12.5px]">
+            {selectedFigs.slice(0, 12).map((f) => (
+              <li key={f.id}>{f.title}</li>
+            ))}
+            {selectedFigs.length > 12 ? (
+              <li>…另有 {selectedFigs.length - 12} 张</li>
+            ) : null}
+          </ul>
+        </ConfirmDialog>
       )}
-      {lightbox && (
+
+      {bulkStep === 2 && (
+        <ConfirmDialog
+          title="再次确认永久删除"
+          danger
+          confirmLabel={bulkBusy ? "删除中…" : "确认删除"}
+          cancelLabel="返回"
+          busy={bulkBusy}
+          onCancel={() => !bulkBusy && setBulkStep(1)}
+          onConfirm={runBulkDelete}
+        >
+          <p className="m-0">
+            将从仓库 <code className="font-mono text-[12px]">{byok.repo}</code>{" "}
+            永久删除这 <strong>{selectedFigs.length}</strong>{" "}
+            张图（catalog + 图片）。此操作不易撤销，请再次确认。
+          </p>
+        </ConfirmDialog>
+      )}
+
+      {lightbox && !selectMode && (
         <Lightbox fig={lightbox} onClose={() => setLightbox(null)} />
       )}
       <Toast toast={toast} />
