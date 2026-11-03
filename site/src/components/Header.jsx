@@ -9,7 +9,7 @@ export default function Header({
   onOpenSettings,
 }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--color-line)]/80 bg-[var(--color-canvas)]/92 backdrop-blur-md">
+    <header className="sticky top-0 z-40 hairline-b bg-[var(--color-canvas)]/92 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-[1500px] items-center gap-3 px-4">
         <div className="flex shrink-0 items-center gap-2">
           <div className="flex size-8 items-center justify-center rounded-[12px] bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]">

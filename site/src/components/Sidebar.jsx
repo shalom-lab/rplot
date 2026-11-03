@@ -1,7 +1,7 @@
 export default function Sidebar({ categories, counts, category, total, onCategory }) {
   return (
-    <aside className="hidden w-[220px] shrink-0 md:block">
-      <div className="sticky top-[4.25rem] space-y-5 pr-2">
+    <aside className="hidden w-[228px] shrink-0 md:block">
+      <div className="sticky top-[4.25rem] hairline-r min-h-[calc(100vh-5rem)] space-y-5 pr-4">
         <div>
           <p className="mb-2 px-3 text-[11px] font-medium uppercase tracking-[0.08em] text-[var(--color-muted)]">
             浏览

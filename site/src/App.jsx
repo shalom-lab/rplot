@@ -186,7 +186,7 @@ export default function App() {
   if (!catalog) {
     return (
       <div className="min-h-screen bg-[var(--color-canvas)]">
-        <div className="border-b border-[var(--color-line)] px-4 py-3">
+        <div className="hairline-b px-4 py-3">
           <div className="mx-auto flex max-w-[1500px] items-center gap-3">
             <div className="skeleton h-8 w-28 r-control" />
             <div className="skeleton mx-auto h-10 max-w-xl flex-1 r-search" />
@@ -199,10 +199,10 @@ export default function App() {
               <div key={i} className="skeleton h-9 w-full r-chip" />
             ))}
           </div>
-          <div className="grid flex-1 grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <div key={i} className="overflow-hidden border border-[var(--color-line)] r-card">
-                <div className="skeleton aspect-[3/4] w-full" />
+          <div className="masonry flex-1">
+            {[220, 280, 240, 300, 260, 230, 290, 250, 270, 210].map((h, i) => (
+              <div key={i} className="masonry-item overflow-hidden border border-[var(--color-line)] r-card">
+                <div className="skeleton w-full" style={{ height: h }} />
                 <div className="space-y-2 p-3">
                   <div className="skeleton h-3.5 w-4/5 r-chip" />
                   <div className="skeleton h-3 w-2/5 r-chip" />
@@ -302,17 +302,18 @@ export default function App() {
           )}
 
           {figures.length ? (
-            <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <div className="masonry">
               {figures.map((fig) => (
-                <FigureCard
-                  key={fig.id}
-                  fig={fig}
-                  starred={favorites.has(fig.id)}
-                  deleting={busyId === fig.id}
-                  onStar={toggleStar}
-                  onDelete={requestDelete}
-                  onOpen={setLightbox}
-                />
+                <div key={fig.id} className="masonry-item">
+                  <FigureCard
+                    fig={fig}
+                    starred={favorites.has(fig.id)}
+                    deleting={busyId === fig.id}
+                    onStar={toggleStar}
+                    onDelete={requestDelete}
+                    onOpen={setLightbox}
+                  />
+                </div>
               ))}
             </div>
           ) : (

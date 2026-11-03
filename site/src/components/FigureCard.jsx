@@ -30,10 +30,10 @@ export default function FigureCard({
   }, [menuOpen]);
 
   return (
-    <article className="group flex flex-col overflow-hidden border border-[var(--color-line)] bg-[var(--color-card)] shadow-[0_1px_2px_rgba(28,25,23,0.04)] transition duration-200 hover:-translate-y-0.5 hover:border-[var(--color-line-strong)] hover:shadow-[0_12px_28px_rgba(28,25,23,0.08)] r-card">
+    <article className="group relative flex flex-col overflow-hidden border border-[var(--color-line)] bg-[var(--color-card)] shadow-[0_1px_2px_rgba(28,25,23,0.03)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(28,25,23,0.08)] r-card">
       <button
         type="button"
-        className="relative block aspect-[3/4] w-full cursor-zoom-in overflow-hidden bg-[#ebe4d8] text-left"
+        className="relative block w-full cursor-zoom-in overflow-hidden bg-[#ebe4d8] text-left"
         onClick={() => onOpen(fig)}
         title="放大预览"
       >
@@ -41,11 +41,9 @@ export default function FigureCard({
           src={assetUrl(fig.file)}
           alt={fig.title}
           loading="lazy"
-          className="size-full object-cover transition duration-300 group-hover:scale-[1.03]"
+          className="block w-full h-auto object-cover transition duration-300 group-hover:scale-[1.02]"
         />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/35 to-transparent opacity-0 transition group-hover:opacity-100" />
 
-        {/* Quiet actions on image */}
         <div className="absolute right-2.5 top-2.5 flex items-center gap-1.5">
           <button
             type="button"
@@ -108,7 +106,7 @@ export default function FigureCard({
         </div>
       </button>
 
-      <div className="flex flex-1 flex-col gap-1.5 px-3.5 py-3">
+      <div className="flex flex-1 flex-col gap-1 px-3.5 py-3">
         <h3 className="m-0 line-clamp-2 text-[13.5px] font-semibold leading-snug text-[var(--color-ink)]">
           {fig.title}
         </h3>
@@ -116,11 +114,6 @@ export default function FigureCard({
           {fig.category}
           {fig.tags?.length ? ` · ${fig.tags.slice(0, 2).join(" · ")}` : ""}
         </p>
-        {fig.note_zh ? (
-          <p className="m-0 line-clamp-2 text-[11.5px] leading-relaxed text-stone-400">
-            {fig.note_zh}
-          </p>
-        ) : null}
       </div>
     </article>
   );
