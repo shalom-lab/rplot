@@ -5,3 +5,6 @@ site/node_modules/
 site/dist/
 site/public/catalog.json
 site/public/figures/
+
+_figures_backup_old/
+_stage_figures/
