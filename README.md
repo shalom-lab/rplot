@@ -10,7 +10,7 @@
 - 按 **category** 筛选 + **关键词**（标题 / tags / 备注）搜索
 - 单图 **星标**（`localStorage`，无需密钥）
 - 单图 **删除**（GitHub Contents API：更新 catalog + 删图；需确认；**BYOK**）
-- 页面紧凑、小圆角工具站风格
+- 页面紧凑、小圆角工具站风格（React + Vite + Tailwind）
 
 ## 目录结构
 
@@ -20,7 +20,7 @@ rplot/
 ├── catalog.json          # ★ 机器可读主索引
 ├── figures/              # 图片（一图一文件）
 ├── sources/catalog.md
-├── site/                 # Vite 静态 SPA（Pages 源）
+├── site/                 # React + Vite + Tailwind SPA（Pages 源）
 └── .github/workflows/pages.yml
 ```
 
