@@ -45,7 +45,6 @@ export default function Header({
           </div>
         </div>
 
-        {/* Left cluster: select + 已选 + 删除 */}
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
@@ -53,13 +52,9 @@ export default function Header({
             aria-label="选择"
             aria-pressed={selectMode}
             onClick={onToggleSelect}
-            className={`ui-btn ui-icon-btn ${
-              selectMode
-                ? "border-[var(--color-coral)]/45 bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]"
-                : ""
-            }`}
+            className="ui-btn ui-icon-btn"
           >
-            <IconSelect className="size-4" checked={selectMode} />
+            <IconSelect className="size-[18px]" checked={selectMode} />
           </button>
 
           {selectMode && (
@@ -69,7 +64,7 @@ export default function Header({
               </span>
               <button
                 type="button"
-                className="ui-btn ui-btn-danger"
+                className="border-0 bg-transparent px-1 text-[12.5px] font-medium text-[#9f4034] transition hover:opacity-70 disabled:opacity-40"
                 disabled={selectedCount === 0}
                 onClick={handleDeleteClick}
                 title={selectedCount === 0 ? "请先勾选卡片" : "删除所选"}
@@ -95,7 +90,7 @@ export default function Header({
           </kbd>
         </label>
 
-        <div className="flex shrink-0 items-center gap-1.5">
+        <div className="flex shrink-0 items-center gap-0.5">
           <button
             type="button"
             title="设置 · BYOK"
@@ -114,7 +109,7 @@ export default function Header({
             aria-label="GitHub 仓库"
             className="ui-btn ui-icon-btn"
           >
-            <IconGitHub className="size-4" />
+            <IconGitHub className="size-[18px]" />
           </a>
         </div>
       </div>

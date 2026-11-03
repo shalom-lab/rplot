@@ -100,21 +100,23 @@ export default function FigureCard({
         {/* Top-right: select checkbox only */}
         {selectMode && (
           <span
-            className={`pointer-events-none absolute right-2 top-2 inline-flex size-7 items-center justify-center rounded-[8px] border backdrop-blur-md ${
-              selected
-                ? "border-[var(--color-coral)] bg-[var(--color-coral)] text-white"
-                : "border-white/40 bg-white/90 text-stone-500"
+            className={`pointer-events-none absolute right-2 top-2 inline-flex size-7 items-center justify-center text-stone-700 drop-shadow-[0_0_2px_rgba(255,255,255,0.95)] ${
+              selected ? "text-[var(--color-coral-text)]" : "text-stone-600/80"
             }`}
             aria-hidden
           >
-            {selected ? <IconCheck className="size-3.5" /> : null}
+            {selected ? (
+              <IconCheck className="size-4" />
+            ) : (
+              <span className="size-[15px] rounded-[3px] border-[1.5px] border-current bg-transparent" />
+            )}
           </span>
         )}
 
         {/* Bottom-right: copy + star (browse mode) */}
         {!selectMode && (
           <div
-            className={`absolute bottom-2 right-2 flex items-center gap-1.5 transition ${
+            className={`absolute bottom-2 right-2 flex items-center gap-2.5 transition ${
               starred
                 ? "opacity-100"
                 : "opacity-0 group-hover:opacity-100 focus-within:opacity-100"
@@ -126,12 +128,12 @@ export default function FigureCard({
               title="复制图片"
               aria-label="复制图片"
               disabled={copying}
-              className="inline-flex size-8 items-center justify-center rounded-[8px] border border-white/35 bg-white/90 text-stone-600 backdrop-blur-md transition hover:bg-white disabled:opacity-60"
+              className="inline-flex size-7 items-center justify-center border-0 bg-transparent p-0 text-stone-700 drop-shadow-[0_0_2px_rgba(255,255,255,0.9)] transition hover:opacity-70 disabled:opacity-50"
             >
               {copying ? (
-                <IconSpinner className="size-3.5" />
+                <IconSpinner className="size-4" />
               ) : (
-                <IconCopy className="size-3.5" />
+                <IconCopy className="size-4" />
               )}
             </button>
             <button
@@ -142,13 +144,11 @@ export default function FigureCard({
               }}
               title={starred ? "取消星标" : "加星标"}
               aria-label={starred ? "取消星标" : "加星标"}
-              className={`inline-flex size-8 items-center justify-center rounded-[8px] border backdrop-blur-md transition ${
-                starred
-                  ? "border-amber-200/55 bg-amber-50/95 text-amber-700"
-                  : "border-white/35 bg-white/90 text-stone-600 hover:bg-white"
+              className={`inline-flex size-7 items-center justify-center border-0 bg-transparent p-0 drop-shadow-[0_0_2px_rgba(255,255,255,0.9)] transition hover:opacity-70 ${
+                starred ? "text-amber-600" : "text-stone-700"
               }`}
             >
-              <IconStar filled={starred} className="size-3.5" />
+              <IconStar filled={starred} className="size-4" />
             </button>
           </div>
         )}

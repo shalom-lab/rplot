@@ -223,9 +223,24 @@
   border-color: transparent;
 }
 .ui-icon-btn {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--color-muted);
+  border-radius: 0;
+}
+.ui-icon-btn:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--color-ink);
+  opacity: 0.85;
+}
+.ui-icon-btn[aria-pressed="true"] {
+  color: var(--color-coral-text);
+  opacity: 1;
 }
 .ui-field {
   width: 100%;
