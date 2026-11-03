@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconCheck, IconCopy, IconSpinner, IconStar } from "../lib/icons";
+import { IconCopy, IconSelect, IconSpinner, IconStar } from "../lib/icons";
 import { assetUrl } from "../lib/byok";
 
 async function copyImageToClipboard(url) {
@@ -100,16 +100,12 @@ export default function FigureCard({
         {/* Top-right: select checkbox only */}
         {selectMode && (
           <span
-            className={`pointer-events-none absolute right-2 top-2 inline-flex size-7 items-center justify-center text-stone-700 drop-shadow-[0_0_2px_rgba(255,255,255,0.95)] ${
-              selected ? "text-[var(--color-coral-text)]" : "text-stone-600/80"
+            className={`pointer-events-none absolute right-2 top-2 inline-flex size-7 items-center justify-center drop-shadow-[0_0_2px_rgba(255,255,255,0.95)] ${
+              selected ? "text-[var(--color-theme)]" : "text-[var(--color-theme)]/70"
             }`}
             aria-hidden
           >
-            {selected ? (
-              <IconCheck className="size-4" />
-            ) : (
-              <span className="size-[15px] rounded-[3px] border-[1.5px] border-current bg-transparent" />
-            )}
+            <IconSelect className="size-[18px]" checked={selected} />
           </span>
         )}
 
@@ -128,7 +124,7 @@ export default function FigureCard({
               title="复制图片"
               aria-label="复制图片"
               disabled={copying}
-              className="inline-flex size-7 items-center justify-center border-0 bg-transparent p-0 text-stone-700 drop-shadow-[0_0_2px_rgba(255,255,255,0.9)] transition hover:opacity-70 disabled:opacity-50"
+              className="icon-theme inline-flex size-7 items-center justify-center border-0 bg-transparent p-0 drop-shadow-[0_0_2px_rgba(255,255,255,0.85)] transition disabled:opacity-50"
             >
               {copying ? (
                 <IconSpinner className="size-4" />
@@ -144,8 +140,8 @@ export default function FigureCard({
               }}
               title={starred ? "取消星标" : "加星标"}
               aria-label={starred ? "取消星标" : "加星标"}
-              className={`inline-flex size-7 items-center justify-center border-0 bg-transparent p-0 drop-shadow-[0_0_2px_rgba(255,255,255,0.9)] transition hover:opacity-70 ${
-                starred ? "text-amber-600" : "text-stone-700"
+              className={`icon-theme inline-flex size-7 items-center justify-center border-0 bg-transparent p-0 drop-shadow-[0_0_2px_rgba(255,255,255,0.85)] transition ${
+                starred ? "opacity-100" : ""
               }`}
             >
               <IconStar filled={starred} className="size-4" />

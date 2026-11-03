@@ -14,10 +14,12 @@
   --color-muted: #78716c;
   --color-line: rgba(120, 100, 80, 0.10);
   --color-line-strong: rgba(120, 100, 80, 0.16);
-  --color-coral: #e8a598;
-  --color-coral-soft: #f8e4df;
-  --color-coral-text: #9a4d3f;
-  --color-accent: #c4786a;
+  --color-coral: #93c5fd; /* soft blue chip */
+  --color-coral-soft: #eff6ff;
+  --color-coral-text: #1d4ed8;
+  --color-accent: #2563eb;
+  --color-theme: #2563eb;
+  --color-theme-soft: #dbeafe;
   --color-danger: #b91c1c;
 
   --radius-chip: 6px;
@@ -239,7 +241,7 @@
   opacity: 0.85;
 }
 .ui-icon-btn[aria-pressed="true"] {
-  color: var(--color-coral-text);
+  color: var(--color-theme);
   opacity: 1;
 }
 .ui-field {
@@ -326,4 +328,11 @@
 
 .card-meta-hairline {
   box-shadow: inset 0 1px 0 rgba(120, 100, 80, 0.10);
+}
+
+.icon-theme {
+  color: var(--color-theme);
+}
+.icon-theme:hover {
+  opacity: 0.75;
 }
