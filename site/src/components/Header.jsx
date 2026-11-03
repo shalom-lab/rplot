@@ -4,6 +4,33 @@ import { REPO_URL } from "../lib/byok";
 
 const DELETE_DEBOUNCE_MS = 600;
 
+function BrandLogo({ className = "size-8" }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 32 32"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <polygon
+        points="16,2 28,9.5 28,22.5 16,30 4,22.5 4,9.5"
+        fill="var(--color-accent)"
+      />
+      <text
+        x="16"
+        y="21.5"
+        textAnchor="middle"
+        fill="#ffffff"
+        fontSize="14"
+        fontWeight="700"
+        fontFamily="Inter, system-ui, sans-serif"
+      >
+        R
+      </text>
+    </svg>
+  );
+}
+
 export default function Header({
   q,
   selectMode,
@@ -31,17 +58,19 @@ export default function Header({
   return (
     <header className="sticky top-0 z-40 hairline-b bg-[var(--color-canvas)]/92 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-[1500px] items-center gap-3 px-4">
-        <div className="flex shrink-0 items-center gap-2">
-          <div className="flex size-8 items-center justify-center rounded-[12px] bg-[var(--color-coral-soft)] text-[var(--color-coral-text)]">
-            <span className="text-[13px] font-bold tracking-tight">R</span>
-          </div>
-          <div className="leading-tight">
-            <div className="text-[14px] font-semibold tracking-tight text-[var(--color-ink)]">
-              rplot
-            </div>
-            <div className="hidden text-[11px] text-[var(--color-muted)] sm:block">
-              ggplot 精品图书架
-            </div>
+        <div className="flex shrink-0 items-center gap-2.5">
+          <BrandLogo className="size-[30px] shrink-0" />
+          <div className="flex items-center gap-2.5">
+            <span className="text-[16px] font-bold tracking-tight text-[var(--color-ink)]">
+              Rplot
+            </span>
+            <span
+              className="hidden h-4 w-px bg-[var(--color-line-strong)] sm:block"
+              aria-hidden="true"
+            />
+            <span className="hidden text-[13px] font-medium text-[var(--color-muted)] sm:inline">
+              R 科研图形图库
+            </span>
           </div>
         </div>
 
