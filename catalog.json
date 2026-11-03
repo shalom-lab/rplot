@@ -1,0 +1,590 @@
+{
+  "name": "rplot",
+  "description": "Local/OA collection of real impressive ggplot2 (and ggplot-family) scientific/medical figures.",
+  "updated": "2026-11-03",
+  "figure_count": 30,
+  "categories": [
+    "clinical-distribution",
+    "correlation",
+    "distribution",
+    "epidemiology",
+    "forest",
+    "genomics",
+    "multiomics",
+    "multivariate",
+    "pharmacometrics",
+    "ranking",
+    "spatial",
+    "survival"
+  ],
+  "figures": [
+    {
+      "id": "aging-escc-forest-km-multipanel",
+      "file": "figures/aging-escc-forest-km-multipanel.jpg",
+      "title": "Esophageal cancer TME: immune-cell forest plots + KM curves (Fig 1)",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/6c5b/8751614/7f4a4f94da5c/aging-13-203800-g001.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8751614/",
+      "license": "CC BY 3.0",
+      "category": "survival",
+      "tags": [
+        "forest-plot",
+        "kaplan-meier",
+        "multipanel",
+        "oncology",
+        "immune"
+      ],
+      "multipanel": true,
+      "note_zh": "食管癌免疫细胞森林图+多组KM，典型医学投稿一页多图。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "aging-tcga-hr-forest",
+      "file": "figures/aging-tcga-hr-forest.jpg",
+      "title": "TCGA multi-cancer TMEscore hazard-ratio forest (Fig 6)",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/6c5b/8751614/e3ddf377b51f/aging-13-203800-g006.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8751614/",
+      "license": "CC BY 3.0",
+      "category": "forest",
+      "tags": [
+        "forest-plot",
+        "TCGA",
+        "hazard-ratio",
+        "oncology",
+        "table-style"
+      ],
+      "multipanel": false,
+      "note_zh": "文本列+对数HR森林图，红/蓝标显著。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "plos-beta-range-forest",
+      "file": "figures/plos-beta-range-forest.png",
+      "title": "Beta-range coefficient forest for multiple academic outcomes (Fig 4)",
+      "source_url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0297033.g004",
+      "paper_or_site": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0297033",
+      "license": "CC BY 4.0",
+      "category": "forest",
+      "tags": [
+        "forest-plot",
+        "ggplot2",
+        "regression",
+        "coefficient",
+        "dodge"
+      ],
+      "multipanel": false,
+      "note_zh": "纯ggplot回归系数森林，多结局dodge误差条。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "plos-ridgeline-hematology",
+      "file": "figures/plos-ridgeline-hematology.png",
+      "title": "Ridgeline of hematology biomarker regression coefficients (Fig 5)",
+      "source_url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0297033.g005",
+      "paper_or_site": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0297033",
+      "license": "CC BY 4.0",
+      "category": "distribution",
+      "tags": [
+        "ridgeline",
+        "ggridges",
+        "hematology",
+        "biomarker",
+        "density"
+      ],
+      "multipanel": false,
+      "note_zh": "血液学标志物 ridge/joyplot 展示系数分布。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "plos-classic-meta-forest",
+      "file": "figures/plos-classic-meta-forest.png",
+      "title": "Classic meta-analysis style forest plot (Fig 3)",
+      "source_url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0297033.g003",
+      "paper_or_site": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0297033",
+      "license": "CC BY 4.0",
+      "category": "forest",
+      "tags": [
+        "forest-plot",
+        "meta-analysis",
+        "effect-size",
+        "CI"
+      ],
+      "multipanel": false,
+      "note_zh": "方块+菱形汇总的经典荟萃森林图讲解。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "srplot-biomed-gallery-9panel",
+      "file": "figures/srplot-biomed-gallery-9panel.jpg",
+      "title": "SRplot biomedical chart gallery A–I (Fig 3)",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ba59/10635526/ab8e1d721595/pone.0294236.g003.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10635526/",
+      "license": "CC BY 4.0",
+      "category": "multiomics",
+      "tags": [
+        "multipanel",
+        "volcano",
+        "kaplan-meier",
+        "heatmap",
+        "gallery"
+      ],
+      "multipanel": true,
+      "note_zh": "九格生信常用图墙：热图/火山/KM/Circos等。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "survminer-km-risktable-censor",
+      "file": "figures/survminer-km-risktable-censor.png",
+      "title": "survminer publication KM with risk table and censor counts",
+      "source_url": "https://raw.githubusercontent.com/kassambara/survminer/master/tools/README-ggplot2-uber-platinium-premium-customized-survival-plot-1.png",
+      "paper_or_site": "https://github.com/kassambara/survminer",
+      "license": "GPL-2 (package demo)",
+      "category": "survival",
+      "tags": [
+        "kaplan-meier",
+        "survminer",
+        "risk-table",
+        "censor",
+        "ggplot2"
+      ],
+      "multipanel": true,
+      "note_zh": "KM+风险表+删失计数对齐的「全家桶」版式。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggforestplot-biomarker-facets",
+      "file": "figures/ggforestplot-biomarker-facets.png",
+      "title": "Nightingale ggforestplot: biomarker × cardiometabolic trait facets",
+      "source_url": "https://nightingalehealth.github.io/ggforestplot/articles/ggforestplot_files/figure-html/unnamed-chunk-6-1.png",
+      "paper_or_site": "https://nightingalehealth.github.io/ggforestplot/articles/ggforestplot.html",
+      "license": "MIT",
+      "category": "epidemiology",
+      "tags": [
+        "forest-plot",
+        "biomarker",
+        "facet",
+        "metabolomics",
+        "ggforestplot"
+      ],
+      "multipanel": true,
+      "note_zh": "代谢标志物分面森林图，空心/实心编码显著性。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "rgg-manhattan-gwas-annotated",
+      "file": "figures/rgg-manhattan-gwas-annotated.png",
+      "title": "R Graph Gallery Manhattan plot with ggrepel SNP labels",
+      "source_url": "https://r-graph-gallery.com/101_Manhattan_plot_files/figure-html/unnamed-chunk-8-1.png",
+      "paper_or_site": "https://r-graph-gallery.com/101_Manhattan_plot.html",
+      "license": "MIT (gallery)",
+      "category": "genomics",
+      "tags": [
+        "manhattan",
+        "GWAS",
+        "ggrepel",
+        "SNP",
+        "ggplot2"
+      ],
+      "multipanel": false,
+      "note_zh": "GWAS曼哈顿图+峰位点标签。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "rgg-circular-manhattan",
+      "file": "figures/rgg-circular-manhattan.jpg",
+      "title": "R Graph Gallery circular Manhattan plot",
+      "source_url": "https://r-graph-gallery.com/img/graph/Cir_Manhtn.P.jpg",
+      "paper_or_site": "https://r-graph-gallery.com/101_Manhattan_plot.html",
+      "license": "MIT (gallery)",
+      "category": "genomics",
+      "tags": [
+        "manhattan",
+        "circular",
+        "GWAS",
+        "genome"
+      ],
+      "multipanel": false,
+      "note_zh": "环形曼哈顿，视觉冲击强。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "scirep-risk-km-roc-heatmap-5panel",
+      "file": "figures/scirep-risk-km-roc-heatmap-5panel.jpg",
+      "title": "m7G immune-gene risk model: score/KM/ROC/heatmap (Fig 5)",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/2793/13237151/9d432cdeb200/41598_2026_47456_Fig5_HTML.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13237151/",
+      "license": "CC BY-NC-ND 4.0",
+      "category": "multiomics",
+      "tags": [
+        "risk-score",
+        "kaplan-meier",
+        "ROC",
+        "heatmap",
+        "multipanel"
+      ],
+      "multipanel": true,
+      "note_zh": "预后模型五联图（本地参考；NC-ND勿改编再发）。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "scirep-tide-violin-boxplot-2panel",
+      "file": "figures/scirep-tide-violin-boxplot-2panel.jpg",
+      "title": "TIDE boxplot + TME violin by risk group (Fig 8)",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/2793/13237151/66b073082ea5/41598_2026_47456_Fig8_HTML.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13237151/",
+      "license": "CC BY-NC-ND 4.0",
+      "category": "clinical-distribution",
+      "tags": [
+        "violin",
+        "boxplot",
+        "TME",
+        "ggpubr",
+        "multipanel"
+      ],
+      "multipanel": true,
+      "note_zh": "TIDE箱线+TME小提琴显著性标注（NC-ND）。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "fimmu-mutation-enrichment-4panel",
+      "file": "figures/fimmu-mutation-enrichment-4panel.jpg",
+      "title": "Frontiers Immunol.: mutation oncoplot + enrichment 4-panel",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/b9a4/13384851/8ec6c2aa15a6/fimmu-17-1721849-g002.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13384851/",
+      "license": "CC BY 4.0",
+      "category": "genomics",
+      "tags": [
+        "oncoplot",
+        "enrichment",
+        "lollipop",
+        "multipanel",
+        "mutation"
+      ],
+      "multipanel": true,
+      "note_zh": "突变瀑布+富集；A偏maftools，B–D偏ggplot。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "psp-ggplot-facet-ad-longitudinal",
+      "file": "figures/psp-ggplot-facet-ad-longitudinal.jpg",
+      "title": "Pharmacometric ggplot vs lattice vs base: AD longitudinal facets (Fig 7)",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/790b/3817376/75189b612d05/psp201356f7.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3817376/",
+      "license": "CC BY-NC-ND 3.0",
+      "category": "pharmacometrics",
+      "tags": [
+        "facet",
+        "longitudinal",
+        "Alzheimer",
+        "ggplot2",
+        "comparison"
+      ],
+      "multipanel": true,
+      "note_zh": "AD病程分面纵向散点；顶行展示ggplot优势（NC-ND）。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "raincloud-allen-classic",
+      "file": "figures/raincloud-allen-classic.jpg",
+      "title": "Raincloud plots paper: classic raincloud (density+boxplot+jitter)",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/04b6/10521072/d6fbd24a6acb/wellcomeopenres-4-18219-g0002.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6480976/",
+      "license": "CC BY 4.0",
+      "category": "distribution",
+      "tags": [
+        "raincloud",
+        "density",
+        "boxplot",
+        "jitter",
+        "ggdist"
+      ],
+      "multipanel": false,
+      "note_zh": "经典雨云图：半小提琴+箱线+原始点。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "upset-orthogroups-rgg",
+      "file": "figures/upset-orthogroups-rgg.png",
+      "title": "R Graph Gallery UpSet plot of orthogroup intersections",
+      "source_url": "https://r-graph-gallery.com/upset-plot_files/figure-html/theCode-1.png",
+      "paper_or_site": "https://r-graph-gallery.com/upset-plot.html",
+      "license": "MIT (gallery)",
+      "category": "genomics",
+      "tags": [
+        "upset",
+        "set-intersection",
+        "UpSetR",
+        "orthogroups",
+        "matrix"
+      ],
+      "multipanel": true,
+      "note_zh": "多集合交集UpSet，替代高维Venn。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggalluvial-vaccination-survey",
+      "file": "figures/ggalluvial-vaccination-survey.png",
+      "title": "ggalluvial: vaccination survey responses across three waves",
+      "source_url": "https://corybrunson.github.io/ggalluvial/articles/ggalluvial_files/figure-html/alluvial%20diagram%20of%20vaccinations%20dataset-1.png",
+      "paper_or_site": "https://corybrunson.github.io/ggalluvial/",
+      "license": "MIT (package)",
+      "category": "epidemiology",
+      "tags": [
+        "alluvial",
+        "ggalluvial",
+        "vaccination",
+        "flow",
+        "longitudinal"
+      ],
+      "multipanel": false,
+      "note_zh": "疫苗态度三期流转冲积图，公卫常用。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "enhancedvolcano-de-labelled",
+      "file": "figures/enhancedvolcano-de-labelled.png",
+      "title": "EnhancedVolcano labelled differential-expression volcano",
+      "source_url": "https://raw.githubusercontent.com/kevinblighe/EnhancedVolcano/devel/README_files/figure-gfm/ex4-1.png",
+      "paper_or_site": "https://github.com/kevinblighe/EnhancedVolcano",
+      "license": "GPL-3 (package demo)",
+      "category": "genomics",
+      "tags": [
+        "volcano",
+        "EnhancedVolcano",
+        "DE",
+        "ggrepel",
+        "RNA-seq"
+      ],
+      "multipanel": false,
+      "note_zh": "差异表达火山图，阈值阈值与双阈值着色。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggcorrplot-triangle-labels",
+      "file": "figures/ggcorrplot-triangle-labels.png",
+      "title": "ggcorrplot lower-triangle correlation matrix with labels",
+      "source_url": "https://raw.githubusercontent.com/kassambara/ggcorrplot/master/man/figures/README-labels-1.png",
+      "paper_or_site": "https://rpkgs.datanovia.com/ggcorrplot/",
+      "license": "GPL-2 (package demo)",
+      "category": "correlation",
+      "tags": [
+        "ggcorrplot",
+        "correlation",
+        "heatmap",
+        "triangle",
+        "EDA"
+      ],
+      "multipanel": false,
+      "note_zh": "下三角相关矩阵热图带数值标注。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggplot-uk-cities-bubble-map",
+      "file": "figures/ggplot-uk-cities-bubble-map.png",
+      "title": "R Graph Gallery: UK 1000 biggest cities bubble map",
+      "source_url": "https://r-graph-gallery.com/330-bubble-map-with-ggplot2_files/figure-html/thecode6-1.png",
+      "paper_or_site": "https://r-graph-gallery.com/330-bubble-map-with-ggplot2.html",
+      "license": "MIT (gallery)",
+      "category": "spatial",
+      "tags": [
+        "bubble-map",
+        "spatial",
+        "ggplot2",
+        "geoepi",
+        "choropleth-adjacent"
+      ],
+      "multipanel": false,
+      "note_zh": "英国城市人口气泡地图，空间流行病学审美参考。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "factoextra-pca-biplot",
+      "file": "figures/factoextra-pca-biplot.png",
+      "title": "factoextra PCA biplot (individuals + variable arrows)",
+      "source_url": "https://raw.githubusercontent.com/kassambara/factoextra/master/man/figures/README-principal-component-analysis-data-mining-2.png",
+      "paper_or_site": "https://github.com/kassambara/factoextra",
+      "license": "GPL-2 (package demo)",
+      "category": "multivariate",
+      "tags": [
+        "PCA",
+        "biplot",
+        "factoextra",
+        "dimension-reduction",
+        "arrows"
+      ],
+      "multipanel": false,
+      "note_zh": "PCA双标图：样本点+变量箭头。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "doseresponse-alcohol-cvd",
+      "file": "figures/doseresponse-alcohol-cvd.jpg",
+      "title": "Dose-response meta: alcohol vs CVD relative risk curve",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/e103/6635664/8537cc2db03d/epih-41-e2019006f6.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6635664/",
+      "license": "CC BY 4.0",
+      "category": "epidemiology",
+      "tags": [
+        "dose-response",
+        "spline",
+        "relative-risk",
+        "CVD",
+        "meta-analysis"
+      ],
+      "multipanel": false,
+      "note_zh": "饮酒–心血管剂量反应曲线+CI（对数风险轴）。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "beeswarm-grouped-rgg",
+      "file": "figures/beeswarm-grouped-rgg.png",
+      "title": "R Graph Gallery grouped beeswarm (ggbeeswarm-style)",
+      "source_url": "https://r-graph-gallery.com/img/graph/372-grouped-beeswarm-3.png",
+      "paper_or_site": "https://r-graph-gallery.com/beeswarm.html",
+      "license": "MIT (gallery)",
+      "category": "distribution",
+      "tags": [
+        "beeswarm",
+        "ggbeeswarm",
+        "dotplot",
+        "distribution",
+        "groups"
+      ],
+      "multipanel": false,
+      "note_zh": "分组蜂群点图，展示原始点密度。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggally-scatter-correlogram",
+      "file": "figures/ggally-scatter-correlogram.png",
+      "title": "GGally scatterplot-matrix correlogram",
+      "source_url": "https://r-graph-gallery.com/img/graph/199-correlation-matrix-with-ggally3.png",
+      "paper_or_site": "https://r-graph-gallery.com/correlogram.html",
+      "license": "MIT (gallery)",
+      "category": "correlation",
+      "tags": [
+        "GGally",
+        "correlogram",
+        "scatter-matrix",
+        "EDA",
+        "pairs"
+      ],
+      "multipanel": true,
+      "note_zh": "散点矩阵相关图，不同于热图型corrplot。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggpubr-boxplot-jitter-clinical",
+      "file": "figures/ggpubr-boxplot-jitter-clinical.png",
+      "title": "ggpubr violin+boxplot with Kruskal–Wallis dose comparisons",
+      "source_url": "https://raw.githubusercontent.com/kassambara/ggpubr/master/man/figures/README-ggpubr-box-plot-dot-plots-strip-charts-3.png",
+      "paper_or_site": "https://rpkgs.datanovia.com/ggpubr/",
+      "license": "GPL-2 (package demo)",
+      "category": "clinical-distribution",
+      "tags": [
+        "ggpubr",
+        "violin",
+        "boxplot",
+        "dose",
+        "significance"
+      ],
+      "multipanel": false,
+      "note_zh": "剂量组小提琴+箱线+显著性括号，临床比较范本。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "psp-clinical-drug-smooth-2panel",
+      "file": "figures/psp-clinical-drug-smooth-2panel.jpg",
+      "title": "Pharmacometric clinical drug response: color mapping vs weighted facets (Fig 5)",
+      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/790b/3817376/ed8035064827/psp201356f5.jpg",
+      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3817376/",
+      "license": "CC BY-NC-ND 3.0",
+      "category": "pharmacometrics",
+      "tags": [
+        "geom_smooth",
+        "facet",
+        "clinical-trial",
+        "weighted",
+        "multipanel"
+      ],
+      "multipanel": true,
+      "note_zh": "药物组平滑曲线对比+加权分面（NC-ND）。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggpubr-cleveland-dot-ranked",
+      "file": "figures/ggpubr-cleveland-dot-ranked.png",
+      "title": "ggpubr Cleveland / ranked dot plot (mtcars mpg by cyl)",
+      "source_url": "https://raw.githubusercontent.com/kassambara/ggpubr/master/man/figures/README-cleveland-dot-plots-1.png",
+      "paper_or_site": "https://rpkgs.datanovia.com/ggpubr/",
+      "license": "GPL-2 (package demo)",
+      "category": "ranking",
+      "tags": [
+        "cleveland-dot",
+        "ggpubr",
+        "ranking",
+        "dotplot",
+        "ordered"
+      ],
+      "multipanel": false,
+      "note_zh": "排序克利夫兰点图，临床/基因排序常用版式。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggpubr-lollipop-ranked",
+      "file": "figures/ggpubr-lollipop-ranked.png",
+      "title": "ggpubr lollipop chart",
+      "source_url": "https://raw.githubusercontent.com/kassambara/ggpubr/master/man/figures/README-lollipop-chart-1.png",
+      "paper_or_site": "https://rpkgs.datanovia.com/ggpubr/",
+      "license": "GPL-2 (package demo)",
+      "category": "ranking",
+      "tags": [
+        "lollipop",
+        "ggpubr",
+        "ranking",
+        "geom_segment",
+        "dot"
+      ],
+      "multipanel": false,
+      "note_zh": "棒棒糖图，比条形更轻量的排序展示。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggplot-2d-density",
+      "file": "figures/ggplot-2d-density.png",
+      "title": "R Graph Gallery 2D density contour plot (ggplot2)",
+      "source_url": "https://r-graph-gallery.com/img/graph/2d-density-plot-with-ggplot28.png",
+      "paper_or_site": "https://r-graph-gallery.com/2d-density-chart.html",
+      "license": "MIT (gallery)",
+      "category": "distribution",
+      "tags": [
+        "2d-density",
+        "contour",
+        "ggplot2",
+        "bivariate",
+        "EDA"
+      ],
+      "multipanel": false,
+      "note_zh": "二维密度等高线，单面板双变量分布。",
+      "added": "2026-11-03"
+    },
+    {
+      "id": "ggplot-scatter-with-marginal-density",
+      "file": "figures/ggplot-scatter-with-marginal-density.png",
+      "title": "R Graph Gallery scatter with density (ggplot2)",
+      "source_url": "https://r-graph-gallery.com/img/graph/198-scatter-and-density-plot-ggplot2.png",
+      "paper_or_site": "https://r-graph-gallery.com/2d-density-chart.html",
+      "license": "MIT (gallery)",
+      "category": "distribution",
+      "tags": [
+        "scatter",
+        "density",
+        "ggplot2",
+        "bivariate",
+        "smooth"
+      ],
+      "multipanel": false,
+      "note_zh": "散点+密度着色的双变量关系图。",
+      "added": "2026-11-03"
+    }
+  ]
+}

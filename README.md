@@ -1,33 +1,55 @@
 # rplot — ggplot 精品科研图参考集
 
-本地收藏一组**真实、可下载**的 ggplot2（及 ggplot 生态）科研/医学风格图，供 `hello-r` / `r-post` 类教学与审美对照使用。
-
-## 目的
-
-- 收集论文与开放图库里**像样、有冲击力**的 ggplot 图（含一页多图）
-- 强调医学 / 流行病学 / 生信常见类型：森林图、Kaplan–Meier、曼哈顿、火山、分面小提琴、风险评分多面板等
-- **不造假、不 AI 编图**；图片来自 OA/CC 论文图、作者/包文档与 R Graph Gallery
+本地 + GitHub 收藏一组**真实可下载**的 ggplot2（及 ggplot 生态）科研 / 医学风格图，供 `hello-r`、`r-post` 等教学与审美对照。**不造假、不 AI 编图。**
 
 ## 目录结构
 
 ```
 rplot/
-├── README.md           # 本说明
-├── figures/            # 已下载的真实图片
+├── README.md        # 本说明（总索引）
+├── catalog.json     # ★ 机器可读主索引（权威来源）
+├── figures/         # 全部图片
 └── sources/
-    └── catalog.md      # 每张图的来源 URL、许可、点评
+    └── catalog.md   # 指向 catalog.json 的简短说明（不再维护长列表）
 ```
 
-## 使用说明
+## `catalog.json` 怎么用
 
-1. 直接打开 `figures/` 看图；对照 `sources/catalog.md` 查原文与许可。
-2. 本仓库目前**仅本地 git**，**尚未创建 GitHub remote**（需你确认后再建 `shalom-lab/rplot`）。
-3. 引用或二次分发前请核对各条目的 License（CC BY 可较自由；CC BY-NC-ND 仅本地参考、勿改编再发）。
+每条图含字段：`id`、`file`、`title`、`source_url`、`paper_or_site`、`license`、`category`、`tags`（**最多 5 个**）、`multipanel`、`note_zh`、`added`。
 
-## 当前规模
+- **`category`**：一张图一个主类（如 `survival` / `forest` / `genomics` / `epidemiology` / `distribution` / `spatial` …），方便按主题浏览。
+- **`tags`**：补充关键词，硬上限 5 个，只留最有用的（图型、包名、领域）。
 
-见 `figures/`（约十余张）。精选亮点见 `sources/catalog.md` 顶部「推荐三甲」。
+用 jq 举例：
 
-## 与姐妹项目
+```bash
+jq '.figures[] | select(.category=="survival") | {id,file,tags}' catalog.json
+jq '.figures[] | select(.tags|index("volcano")) | .file' catalog.json
+```
 
-风格对齐实用向 R 教学与医学向读者：`/workspace/hello-r`、`/workspace/r-post`。
+## 亮点（先看这些）
+
+| 文件 | 为何值得看 |
+|------|------------|
+| `figures/aging-escc-forest-km-multipanel.jpg` | 森林图 + KM 一页多图（医学投稿范本） |
+| `figures/scirep-risk-km-roc-heatmap-5panel.jpg` | 风险评分 / KM / ROC / 热图五联 |
+| `figures/ggforestplot-biomarker-facets.png` | 代谢标志物分面森林图 |
+| `figures/ggalluvial-vaccination-survey.png` | 疫苗态度冲积图（公卫流转） |
+| `figures/upset-orthogroups-rgg.png` | 基因组 UpSet 交集 |
+| `figures/raincloud-allen-classic.jpg` | 经典雨云图（Wellcome OA） |
+| `figures/enhancedvolcano-de-labelled.png` | 差异表达火山图 |
+| `figures/doseresponse-alcohol-cvd.jpg` | 剂量–反应曲线 + CI |
+
+完整点评与许可见 `catalog.json` 的 `note_zh` / `license`。
+
+## 许可提醒
+
+优先收录 CC BY / MIT / 包文档示例。标注 **CC BY-NC-ND** 的条目仅作本地参考，勿改编再分发。引用请回链 `paper_or_site`。
+
+## 规模
+
+见 `catalog.json` → `figure_count`（见 `catalog.json` 的 `figure_count`；一文件一图；多面板原文整图保留不裁切；主题尽量不重样）。
+
+## 远程
+
+GitHub：`shalom-lab/rplot`（与公开姐妹仓 `hello-r` 一致为 public）。推送前请确认许可与署名。
