@@ -7,3 +7,5 @@ Batch 01: approved examples, archived with source R, CSV inputs and session info
 All current examples use simulated data; they are templates, not research results.
 Run Rscript archive/batch-01/generate.R from repository root to reproduce batch 01.
 Batch 02: new exploratory examples in outputs/batch-02; pending visual preference review.
+
+All self-drawn figures now use ggplot2 via scripts/ggplot-figures.R. Run each generate.R from repository root. Reference-12 uses built-in real observations; batches 01/02 use simulated data.

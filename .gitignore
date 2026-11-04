@@ -8,3 +8,5 @@ site/public/figures/
 
 _figures_backup_old/
 _stage_figures/
+
+.r-library/
