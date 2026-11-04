@@ -2,7 +2,7 @@
   "name": "rplot",
   "description": "真实 SCI / 顶刊风格 ggplot2（及生态）科研图参考集；一文件一图；中文分类与标签。",
   "updated": "2026-11-04",
-  "figure_count": 51,
+  "figure_count": 73,
   "categories": [
     "临床分布",
     "分布展示",
@@ -1012,6 +1012,402 @@
         1844
       ],
       "webr_status": "not-tested"
+    },
+    {
+      "id": "ggplot-r-demo-01-distribution",
+      "file": "figures/ggplot-r-demo-01-distribution.png",
+      "title": "三组响应分布：小提琴与观测点",
+      "source_url": "outputs/r-demo/01-distribution.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "临床分布",
+      "tags": [
+        "小提琴图",
+        "箱线图",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/r-demo/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-r-demo-02-volcano",
+      "file": "figures/ggplot-r-demo-02-volcano.png",
+      "title": "差异表达火山图示例",
+      "source_url": "outputs/r-demo/02-volcano.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "火山图",
+      "tags": [
+        "差异表达",
+        "火山图",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/r-demo/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-r-demo-03-forest",
+      "file": "figures/ggplot-r-demo-03-forest.png",
+      "title": "亚组风险比森林图示例",
+      "source_url": "outputs/r-demo/03-forest.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "森林图",
+      "tags": [
+        "亚组分析",
+        "风险比",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/r-demo/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-r-demo-04-heatmap",
+      "file": "figures/ggplot-r-demo-04-heatmap.png",
+      "title": "分组基因表达热图示例",
+      "source_url": "outputs/r-demo/04-heatmap.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "热图",
+      "tags": [
+        "表达热图",
+        "标准化",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/r-demo/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-r-demo-05-trend",
+      "file": "figures/ggplot-r-demo-05-trend.png",
+      "title": "纵向响应曲线与置信带",
+      "source_url": "outputs/r-demo/05-trend.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "药代动力学",
+      "tags": [
+        "趋势图",
+        "置信区间",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/r-demo/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-batch-02-06-pca",
+      "file": "figures/ggplot-batch-02-06-pca.png",
+      "title": "PCA 分组散点与置信椭圆",
+      "source_url": "outputs/batch-02/06-pca.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "多元分析",
+      "tags": [
+        "PCA",
+        "置信椭圆",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/batch-02/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-batch-02-07-roc",
+      "file": "figures/ggplot-batch-02-07-roc.png",
+      "title": "双模型 ROC 曲线示例",
+      "source_url": "outputs/batch-02/07-roc.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "模型评估",
+      "tags": [
+        "ROC",
+        "模型比较",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/batch-02/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-batch-02-08-paired",
+      "file": "figures/ggplot-batch-02-08-paired.png",
+      "title": "配对样本前后变化图",
+      "source_url": "outputs/batch-02/08-paired.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "临床分布",
+      "tags": [
+        "配对数据",
+        "个体变化",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/batch-02/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-batch-02-09-agreement",
+      "file": "figures/ggplot-batch-02-09-agreement.png",
+      "title": "Bland–Altman 方法一致性图",
+      "source_url": "outputs/batch-02/09-agreement.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "模型评估",
+      "tags": [
+        "一致性",
+        "Bland–Altman",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/batch-02/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-batch-02-10-correlation",
+      "file": "figures/ggplot-batch-02-10-correlation.png",
+      "title": "相关系数气泡矩阵示例",
+      "source_url": "outputs/batch-02/10-correlation.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "相关分析",
+      "tags": [
+        "相关矩阵",
+        "气泡图",
+        "模拟数据"
+      ],
+      "multipanel": false,
+      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/batch-02/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "simulated"
+    },
+    {
+      "id": "ggplot-reference-12-01-stacked-proportions",
+      "file": "figures/ggplot-reference-12-01-stacked-proportions.png",
+      "title": "汽车气缸数与挡位堆叠比例图",
+      "source_url": "outputs/reference-12/01-stacked-proportions.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "分布展示",
+      "tags": [
+        "堆叠比例",
+        "分类数据",
+        "mtcars"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-02-raincloud",
+      "file": "figures/ggplot-reference-12-02-raincloud.png",
+      "title": "鸢尾花萼片长度雨云图",
+      "source_url": "outputs/reference-12/02-raincloud.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "分布展示",
+      "tags": [
+        "雨云图",
+        "密度",
+        "iris"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-03-faceted-histogram",
+      "file": "figures/ggplot-reference-12-03-faceted-histogram.png",
+      "title": "鸢尾花萼片长度分面直方图",
+      "source_url": "outputs/reference-12/03-faceted-histogram.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "分布展示",
+      "tags": [
+        "分面",
+        "直方图",
+        "iris"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-04-density-overlay",
+      "file": "figures/ggplot-reference-12-04-density-overlay.png",
+      "title": "鸢尾花萼片长度叠加密度图",
+      "source_url": "outputs/reference-12/04-density-overlay.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "分布展示",
+      "tags": [
+        "密度图",
+        "分组",
+        "iris"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-05-violin-observations",
+      "file": "figures/ggplot-reference-12-05-violin-observations.png",
+      "title": "鸢尾花萼片长度小提琴散点图",
+      "source_url": "outputs/reference-12/05-violin-observations.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "临床分布",
+      "tags": [
+        "小提琴图",
+        "观测点",
+        "iris"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-06-overlaid-histograms",
+      "file": "figures/ggplot-reference-12-06-overlaid-histograms.png",
+      "title": "鸢尾花萼片长度重叠直方图",
+      "source_url": "outputs/reference-12/06-overlaid-histograms.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "分布展示",
+      "tags": [
+        "直方图",
+        "重叠分布",
+        "iris"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-07-binned-density",
+      "file": "figures/ggplot-reference-12-07-binned-density.png",
+      "title": "气温与臭氧浓度二维频数热图",
+      "source_url": "outputs/reference-12/07-binned-density.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "流行病学",
+      "tags": [
+        "二维频数",
+        "环境数据",
+        "airquality"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-08-grouped-boxplots",
+      "file": "figures/ggplot-reference-12-08-grouped-boxplots.png",
+      "title": "汽车油耗分组箱线图",
+      "source_url": "outputs/reference-12/08-grouped-boxplots.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "临床分布",
+      "tags": [
+        "分组箱线图",
+        "汽车数据",
+        "mtcars"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-09-density-means",
+      "file": "figures/ggplot-reference-12-09-density-means.png",
+      "title": "植物干重分组密度与均值图",
+      "source_url": "outputs/reference-12/09-density-means.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "分布展示",
+      "tags": [
+        "密度图",
+        "均值",
+        "PlantGrowth"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-10-labeled-scatter",
+      "file": "figures/ggplot-reference-12-10-labeled-scatter.png",
+      "title": "汽车重量与油耗标注散点图",
+      "source_url": "outputs/reference-12/10-labeled-scatter.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "相关分析",
+      "tags": [
+        "散点图",
+        "标签",
+        "mtcars"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-11-box-jitter",
+      "file": "figures/ggplot-reference-12-11-box-jitter.png",
+      "title": "植物干重箱线散点图",
+      "source_url": "outputs/reference-12/11-box-jitter.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "临床分布",
+      "tags": [
+        "箱线图",
+        "散点",
+        "PlantGrowth"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
+    },
+    {
+      "id": "ggplot-reference-12-12-donut",
+      "file": "figures/ggplot-reference-12-12-donut.png",
+      "title": "汽车气缸数环形构成图",
+      "source_url": "outputs/reference-12/12-donut.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
+      "license": "项目自制 ggplot2 示例",
+      "category": "排名图",
+      "tags": [
+        "环形图",
+        "构成比",
+        "mtcars"
+      ],
+      "multipanel": false,
+      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
+      "added": "2026-11-04",
+      "data_type": "R built-in observations"
     }
   ]
 }
