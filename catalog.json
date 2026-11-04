@@ -2,7 +2,7 @@
   "name": "rplot",
   "description": "真实 SCI / 顶刊风格 ggplot2（及生态）科研图参考集；一文件一图；中文分类与标签。",
   "updated": "2026-11-04",
-  "figure_count": 38,
+  "figure_count": 37,
   "categories": [
     "临床分布",
     "分布展示",
@@ -208,25 +208,6 @@
       "multipanel": false,
       "note_zh": "经典曼哈顿+位点标注，基因组协会研究标配。",
       "added": "2026-11-03"
-    },
-    {
-      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/2793/13237151/9d432cdeb200/41598_2026_47456_Fig5_HTML.jpg",
-      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13237151/",
-      "license": "CC BY-NC-ND 4.0",
-      "added": "2026-11-03",
-      "id": "scirep-km-risk-groups",
-      "file": "figures/scirep-km-risk-groups.jpg",
-      "title": "高低风险 Kaplan–Meier 曲线",
-      "category": "生存分析",
-      "tags": [
-        "生存曲线",
-        "Kaplan-Meier",
-        "风险表",
-        "预后",
-        "显著性"
-      ],
-      "multipanel": false,
-      "note_zh": "KM 曲线+风险表，高低风险对照。"
     },
     {
       "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/2793/13237151/9d432cdeb200/41598_2026_47456_Fig5_HTML.jpg",
