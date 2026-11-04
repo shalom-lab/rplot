@@ -1,8 +1,8 @@
 {
   "name": "rplot",
   "description": "真实 SCI / 顶刊风格 ggplot2（及生态）科研图参考集；一文件一图；中文分类与标签。",
-  "updated": "2026-11-03",
-  "figure_count": 47,
+  "updated": "2026-11-04",
+  "figure_count": 51,
   "categories": [
     "临床分布",
     "分布展示",
@@ -912,6 +912,106 @@
       "multipanel": false,
       "note_zh": "UpSet 交集矩阵，整图保留（柱+矩阵一体）。",
       "added": "2026-11-03"
+    },
+    {
+      "id": "nature-regulator-bubbles",
+      "file": "figures/nature-regulator-bubbles.png",
+      "title": "转录调控因子权重气泡图",
+      "source_url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-024-07234-1/MediaObjects/41586_2024_7234_Fig4_HTML.png",
+      "paper_or_site": "https://www.nature.com/articles/s41586-024-07234-1",
+      "license": "CC BY 4.0",
+      "category": "基因组学",
+      "tags": [
+        "气泡图",
+        "转录因子",
+        "调控网络"
+      ],
+      "multipanel": false,
+      "note_zh": "来源：Chromatin accessibility during human first-trimester neurodevelopment | Nature，Fig. 4b。原图矩形裁切，去除外围面板编号，未改动数据图形。CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。webR：仅图型适配候选，尚未运行验证。 作者署名：Mannens et al.",
+      "added": "2026-11-04",
+      "source_panel": "4b",
+      "crop_box": [
+        290,
+        0,
+        1140,
+        600
+      ],
+      "webr_status": "not-tested"
+    },
+    {
+      "id": "nature-pseudotime-trends",
+      "file": "figures/nature-pseudotime-trends.png",
+      "title": "拟时序多层调控趋势图",
+      "source_url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-024-07234-1/MediaObjects/41586_2024_7234_Fig4_HTML.png",
+      "paper_or_site": "https://www.nature.com/articles/s41586-024-07234-1",
+      "license": "CC BY 4.0",
+      "category": "基因组学",
+      "tags": [
+        "拟时序",
+        "多层曲线",
+        "染色质"
+      ],
+      "multipanel": false,
+      "note_zh": "来源：Chromatin accessibility during human first-trimester neurodevelopment | Nature，Fig. 4e。原图矩形裁切，去除外围面板编号，未改动数据图形。CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。webR：仅图型适配候选，尚未运行验证。 作者署名：Mannens et al.",
+      "added": "2026-11-04",
+      "source_panel": "4e",
+      "crop_box": [
+        1465,
+        115,
+        2142,
+        995
+      ],
+      "webr_status": "not-tested"
+    },
+    {
+      "id": "ng-cell-colocalization-heatmap",
+      "file": "figures/ng-cell-colocalization-heatmap.png",
+      "title": "细胞共定位双向聚类热图",
+      "source_url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41588-024-01819-2/MediaObjects/41588_2024_1819_Fig4_HTML.png",
+      "paper_or_site": "https://www.nature.com/articles/s41588-024-01819-2",
+      "license": "CC BY 4.0",
+      "category": "热图",
+      "tags": [
+        "聚类热图",
+        "注释条",
+        "空间组学"
+      ],
+      "multipanel": false,
+      "note_zh": "来源：Mapping spatially resolved transcriptomes in human and mouse pulmonary fibrosis | Nature Genetics，Fig. 4g。原图矩形裁切，去除外围面板编号，未改动数据图形。CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。webR：仅图型适配候选，尚未运行验证。 作者署名：Franzén et al.",
+      "added": "2026-11-04",
+      "source_panel": "4g",
+      "crop_box": [
+        1230,
+        790,
+        2130,
+        1360
+      ],
+      "webr_status": "not-tested"
+    },
+    {
+      "id": "ng-cross-species-similarity",
+      "file": "figures/ng-cross-species-similarity.png",
+      "title": "跨物种因子相似性矩阵",
+      "source_url": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41588-024-01819-2/MediaObjects/41588_2024_1819_Fig4_HTML.png",
+      "paper_or_site": "https://www.nature.com/articles/s41588-024-01819-2",
+      "license": "CC BY 4.0",
+      "category": "热图",
+      "tags": [
+        "相似性矩阵",
+        "跨物种",
+        "聚类"
+      ],
+      "multipanel": false,
+      "note_zh": "来源：Mapping spatially resolved transcriptomes in human and mouse pulmonary fibrosis | Nature Genetics，Fig. 4h。原图矩形裁切，去除外围面板编号，未改动数据图形。CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。webR：仅图型适配候选，尚未运行验证。 作者署名：Franzén et al.",
+      "added": "2026-11-04",
+      "source_panel": "4h",
+      "crop_box": [
+        1220,
+        1360,
+        2130,
+        1844
+      ],
+      "webr_status": "not-tested"
     }
   ]
 }

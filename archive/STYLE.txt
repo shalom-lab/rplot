@@ -1,0 +1,9 @@
+Approved figure style — 2026-11-04
+PNG only, 2100 x 1650 pixels, 300 dpi; no in-image title, subtitle or caption.
+Keep axis labels, units, group labels and essential legends.
+Categorical colors: JAMA-inspired #374E55 #DF8F44 #00A1D5 #B24745 #79AF97.
+Heatmap/correlation: muted #355C7D -> #F7F5F0 -> #B65C50, symmetric about zero.
+Batch 01: approved examples, archived with source R, CSV inputs and session info.
+All current examples use simulated data; they are templates, not research results.
+Run Rscript archive/batch-01/generate.R from repository root to reproduce batch 01.
+Batch 02: new exploratory examples in outputs/batch-02; pending visual preference review.
