@@ -2,7 +2,7 @@
   "name": "rplot",
   "description": "真实 SCI / 顶刊风格 ggplot2（及生态）科研图参考集；一文件一图；中文分类与标签。",
   "updated": "2026-11-04",
-  "figure_count": 48,
+  "figure_count": 38,
   "categories": [
     "临床分布",
     "分布展示",
@@ -16,29 +16,9 @@
     "热图",
     "生存分析",
     "相关分析",
-    "空间可视化",
-    "药代动力学"
+    "空间可视化"
   ],
   "figures": [
-    {
-      "id": "aging-eac-immune-forest",
-      "file": "figures/aging-eac-immune-forest.jpg",
-      "title": "食管腺癌（EAC）免疫细胞风险森林图",
-      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/6c5b/8751614/7f4a4f94da5c/aging-13-203800-g001.jpg",
-      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8751614/",
-      "license": "CC BY 3.0",
-      "category": "森林图",
-      "tags": [
-        "森林图",
-        "免疫细胞",
-        "食管癌",
-        "风险比",
-        "置信区间"
-      ],
-      "multipanel": false,
-      "note_zh": "EAC 免疫细胞 HR 森林图，彩色效应点与 95%CI。",
-      "added": "2026-11-03"
-    },
     {
       "id": "aging-escc-immune-forest",
       "file": "figures/aging-escc-immune-forest.jpg",
@@ -56,25 +36,6 @@
       ],
       "multipanel": false,
       "note_zh": "ESCC 免疫细胞 HR 森林图，与 EAC 对照排版。",
-      "added": "2026-11-03"
-    },
-    {
-      "id": "aging-km-panel-2",
-      "file": "figures/aging-km-panel-2.jpg",
-      "title": "EAC Th2 细胞总体生存曲线",
-      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/6c5b/8751614/7f4a4f94da5c/aging-13-203800-g001.jpg",
-      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8751614/",
-      "license": "CC BY 3.0",
-      "category": "生存分析",
-      "tags": [
-        "生存曲线",
-        "Kaplan-Meier",
-        "免疫细胞",
-        "肿瘤",
-        "总体生存"
-      ],
-      "multipanel": false,
-      "note_zh": "高低表达分组 KM 曲线，带 p 值。",
       "added": "2026-11-03"
     },
     {
@@ -230,63 +191,6 @@
       "added": "2026-11-03"
     },
     {
-      "id": "plos-classic-meta-forest",
-      "file": "figures/plos-classic-meta-forest.png",
-      "title": "经典 Meta 分析森林图",
-      "source_url": "https://journals.plos.org/plosone/article/figure/image?size=large&id=10.1371/journal.pone.0297033.g003",
-      "paper_or_site": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0297033",
-      "license": "CC BY 4.0",
-      "category": "森林图",
-      "tags": [
-        "森林图",
-        "Meta分析",
-        "效应量",
-        "置信区间",
-        "流行病学"
-      ],
-      "multipanel": false,
-      "note_zh": "标准 meta 森林图排版，适合方法学对照。",
-      "added": "2026-11-03"
-    },
-    {
-      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/790b/3817376/ed8035064827/psp201356f5.jpg",
-      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3817376/",
-      "license": "CC BY-NC-ND 3.0",
-      "added": "2026-11-03",
-      "title": "用药响应随时间折线+置信带（面板 a）",
-      "category": "药代动力学",
-      "tags": [
-        "折线图",
-        "置信区间",
-        "多组比较",
-        "纵向随访",
-        "ggplot2"
-      ],
-      "note_zh": "三药组响应曲线与半透明置信带，经典 ggplot 纵向数据展示。",
-      "id": "psp-drug-response-lines",
-      "file": "figures/psp-drug-response-lines.jpg",
-      "multipanel": false
-    },
-    {
-      "id": "psp-ggplot-facet-ad-longitudinal",
-      "file": "figures/psp-ggplot-facet-ad-longitudinal.jpg",
-      "title": "阿尔茨海默纵向指标分面图",
-      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/790b/3817376/75189b612d05/psp201356f7.jpg",
-      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3817376/",
-      "license": "CC BY-NC-ND 3.0",
-      "category": "药代动力学",
-      "tags": [
-        "分面图",
-        "纵向数据",
-        "阿尔茨海默",
-        "ggplot2",
-        "多指标"
-      ],
-      "multipanel": false,
-      "note_zh": "纵向多指标分面，整页分面网格保留。",
-      "added": "2026-11-03"
-    },
-    {
       "id": "rgg-manhattan-gwas-annotated",
       "file": "figures/rgg-manhattan-gwas-annotated.png",
       "title": "带注释的 GWAS 曼哈顿图",
@@ -360,25 +264,6 @@
       "note_zh": "Stromal/Immune/ESTIMATE 三分组小提琴+箱线，高低风险对照。",
       "id": "scirep-tide-violin-tme",
       "file": "figures/scirep-tide-violin-tme.jpg",
-      "multipanel": false
-    },
-    {
-      "source_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ba59/10635526/ab8e1d721595/pone.0294236.g003.jpg",
-      "paper_or_site": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10635526/",
-      "license": "CC BY 4.0",
-      "added": "2026-11-03",
-      "title": "柱状比较示例",
-      "category": "排名图",
-      "tags": [
-        "柱状图",
-        "组间比较",
-        "排名",
-        "计数",
-        "展示"
-      ],
-      "note_zh": "来自生物医学多图拼版的单面板裁切，便于卡片浏览。",
-      "id": "srplot-bar",
-      "file": "figures/srplot-bar.jpg",
       "multipanel": false
     },
     {
@@ -557,24 +442,6 @@
       "data_type": "simulated"
     },
     {
-      "id": "ggplot-r-demo-03-forest",
-      "file": "figures/ggplot-r-demo-03-forest.png",
-      "title": "亚组风险比森林图示例",
-      "source_url": "outputs/r-demo/03-forest.png",
-      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
-      "license": "项目自制 ggplot2 示例",
-      "category": "森林图",
-      "tags": [
-        "亚组分析",
-        "风险比",
-        "模拟数据"
-      ],
-      "multipanel": false,
-      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/r-demo/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
-      "added": "2026-11-04",
-      "data_type": "simulated"
-    },
-    {
       "id": "ggplot-r-demo-04-heatmap",
       "file": "figures/ggplot-r-demo-04-heatmap.png",
       "title": "分组基因表达热图示例",
@@ -585,24 +452,6 @@
       "tags": [
         "表达热图",
         "标准化",
-        "模拟数据"
-      ],
-      "multipanel": false,
-      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/r-demo/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
-      "added": "2026-11-04",
-      "data_type": "simulated"
-    },
-    {
-      "id": "ggplot-r-demo-05-trend",
-      "file": "figures/ggplot-r-demo-05-trend.png",
-      "title": "纵向响应曲线与置信带",
-      "source_url": "outputs/r-demo/05-trend.png",
-      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
-      "license": "项目自制 ggplot2 示例",
-      "category": "药代动力学",
-      "tags": [
-        "趋势图",
-        "置信区间",
         "模拟数据"
       ],
       "multipanel": false,
@@ -737,24 +586,6 @@
       "data_type": "R built-in observations"
     },
     {
-      "id": "ggplot-reference-12-03-faceted-histogram",
-      "file": "figures/ggplot-reference-12-03-faceted-histogram.png",
-      "title": "鸢尾花萼片长度分面直方图",
-      "source_url": "outputs/reference-12/03-faceted-histogram.png",
-      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
-      "license": "项目自制 ggplot2 示例",
-      "category": "分布展示",
-      "tags": [
-        "分面",
-        "直方图",
-        "iris"
-      ],
-      "multipanel": false,
-      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
-      "added": "2026-11-04",
-      "data_type": "R built-in observations"
-    },
-    {
       "id": "ggplot-reference-12-04-density-overlay",
       "file": "figures/ggplot-reference-12-04-density-overlay.png",
       "title": "鸢尾花萼片长度叠加密度图",
@@ -783,24 +614,6 @@
       "tags": [
         "小提琴图",
         "观测点",
-        "iris"
-      ],
-      "multipanel": false,
-      "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
-      "added": "2026-11-04",
-      "data_type": "R built-in observations"
-    },
-    {
-      "id": "ggplot-reference-12-06-overlaid-histograms",
-      "file": "figures/ggplot-reference-12-06-overlaid-histograms.png",
-      "title": "鸢尾花萼片长度重叠直方图",
-      "source_url": "outputs/reference-12/06-overlaid-histograms.png",
-      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
-      "license": "项目自制 ggplot2 示例",
-      "category": "分布展示",
-      "tags": [
-        "直方图",
-        "重叠分布",
         "iris"
       ],
       "multipanel": false,
