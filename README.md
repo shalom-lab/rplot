@@ -60,9 +60,10 @@ localStorage.setItem("gh-rplot-token", "ghp_your_pat_here");
 
 ## `catalog.json`
 
+
 每条图：`id`、`file`、`title`、`source_url`、`paper_or_site`、`license`、`category`、`tags`（**最多 5**，优先中文）、`multipanel`、`note_zh`、`added`。
 
-当前 **73** 张（其中 22 张为自制 ggplot2 示例）；分类示例：临床分布、分布展示、基因组学、多元分析、排名图、森林图、模型评估、流行病学…
+当前 **49** 张（含 12 张 WebR 可复现自制 ggplot2 示例）；分类示例：临床分布、分布展示、基因组学、多元分析、排名图、森林图、模型评估、流行病学…
 
 ```bash
 jq '.figures[] | select(.category=="生存分析") | {id,file,tags}' catalog.json

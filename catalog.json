@@ -1,8 +1,8 @@
 {
   "name": "rplot",
   "description": "真实 SCI / 顶刊风格 ggplot2（及生态）科研图参考集；一文件一图；中文分类与标签。",
-  "updated": "2026-11-04",
-  "figure_count": 37,
+  "updated": "2026-11-07",
+  "figure_count": 49,
   "categories": [
     "临床分布",
     "分布展示",
@@ -709,6 +709,234 @@
       "note_zh": "R 内置观测数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/reference-12/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
       "added": "2026-11-04",
       "data_type": "R built-in observations"
+    },
+    {
+      "id": "webr-lollipop-auc-rank",
+      "file": "figures/webr-lollipop-auc-rank.png",
+      "title": "生物标志物 AUC 棒棒糖排名图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-lollipop-auc-rank.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "排名图",
+      "tags": [
+        "棒棒糖图",
+        "AUC",
+        "生物标志物",
+        "ROC",
+        "排名"
+      ],
+      "multipanel": false,
+      "note_zh": "WebR 可复现：ggplot2+dplyr+scales；顶刊风单变量 AUC 排名。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-forest-or-covariates",
+      "file": "figures/webr-forest-or-covariates.png",
+      "title": "临床协变量单因素 OR 森林图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-forest-or-covariates.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "森林图",
+      "tags": [
+        "森林图",
+        "比值比",
+        "置信区间",
+        "临床",
+        "对数轴"
+      ],
+      "multipanel": false,
+      "note_zh": "WebR 可复现：geom_pointrange/errorbar + log10 轴；显著项红色。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-volcano-rnaseq",
+      "file": "figures/webr-volcano-rnaseq.png",
+      "title": "差异表达火山图（纯 ggplot2）",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-volcano-rnaseq.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "火山图",
+      "tags": [
+        "火山图",
+        "差异表达",
+        "RNA-seq",
+        "ggplot2",
+        "阈值"
+      ],
+      "multipanel": false,
+      "note_zh": "不用 EnhancedVolcano；纯 ggplot2 阈值，WebR 友好。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-heatmap-clinical-cor",
+      "file": "figures/webr-heatmap-clinical-cor.png",
+      "title": "临床实验室指标相关热图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-heatmap-clinical-cor.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "热图",
+      "tags": [
+        "热图",
+        "相关系数",
+        "实验室指标",
+        "geom_tile",
+        "临床"
+      ],
+      "multipanel": false,
+      "note_zh": "geom_tile + gradient2；无 ComplexHeatmap，WebR 可跑。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-violin-stage-biomarker",
+      "file": "figures/webr-violin-stage-biomarker.png",
+      "title": "分期分组小提琴+箱线+抖动点",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-violin-stage-biomarker.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "临床分布",
+      "tags": [
+        "小提琴图",
+        "箱线图",
+        "抖动点",
+        "分期",
+        "临床"
+      ],
+      "multipanel": false,
+      "note_zh": "AJCC 分期签名评分分布；violin+box+jitter 经典组合。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-calibration-curve",
+      "file": "figures/webr-calibration-curve.png",
+      "title": "预测模型十分位校准曲线",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-calibration-curve.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "模型评估",
+      "tags": [
+        "校准曲线",
+        "预测模型",
+        "置信带",
+        "风险分层",
+        "评估"
+      ],
+      "multipanel": false,
+      "note_zh": "预测概率 vs 观察事件率；气泡∝样本量。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-pca-scores-groups",
+      "file": "figures/webr-pca-scores-groups.png",
+      "title": "转录组 PCA 得分散点（凸包）",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-pca-scores-groups.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "多元分析",
+      "tags": [
+        "PCA",
+        "散点图",
+        "凸包",
+        "分组",
+        "转录组"
+      ],
+      "multipanel": false,
+      "note_zh": "不用 factoextra/MASS 椭圆；chull 凸包，WebR 稳妥。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-density-overlap-labs",
+      "file": "figures/webr-density-overlap-labs.png",
+      "title": "诊断分组重叠核密度图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-density-overlap-labs.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "分布展示",
+      "tags": [
+        "密度图",
+        "重叠分布",
+        "血清标志物",
+        "诊断",
+        "核密度"
+      ],
+      "multipanel": false,
+      "note_zh": "不用 ggridges；geom_density 半透明叠加，WebR 可用。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-dumbbell-prepost",
+      "file": "figures/webr-dumbbell-prepost.png",
+      "title": "治疗前后症状评分哑铃图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-dumbbell-prepost.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "临床分布",
+      "tags": [
+        "哑铃图",
+        "前后对比",
+        "症状评分",
+        "患者",
+        "治疗"
+      ],
+      "multipanel": false,
+      "note_zh": "每人一条线连接基线与 12 周评分；前后对比常用。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-bubble-subgroup-hr",
+      "file": "figures/webr-bubble-subgroup-hr.png",
+      "title": "亚组治疗效应气泡森林图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-bubble-subgroup-hr.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "流行病学",
+      "tags": [
+        "亚组分析",
+        "风险比",
+        "气泡图",
+        "森林图",
+        "临床试验"
+      ],
+      "multipanel": false,
+      "note_zh": "HR + 95%CI；气泡面积∝n；青绿色表示 CI 有利于治疗组。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-stacked-immune-prop",
+      "file": "figures/webr-stacked-immune-prop.png",
+      "title": "肿瘤微环境细胞比例堆叠柱",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-stacked-immune-prop.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "基因组学",
+      "tags": [
+        "堆叠柱图",
+        "免疫细胞",
+        "TME",
+        "组成比",
+        "样本"
+      ],
+      "multipanel": false,
+      "note_zh": "多样本免疫组分相对丰度；纯 ggplot2 堆叠柱。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-incidence-ribbon",
+      "file": "figures/webr-incidence-ribbon.png",
+      "title": "年龄标化发病率时间趋势+置信带",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-incidence-ribbon.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07.R",
+      "license": "MIT (original WebR demo)",
+      "category": "流行病学",
+      "tags": [
+        "发病率",
+        "时间趋势",
+        "置信带",
+        "流行病学",
+        "折线"
+      ],
+      "multipanel": false,
+      "note_zh": "折线+点+ribbon；公共卫生时间序列常用排版。",
+      "added": "2026-11-07"
     }
   ]
 }
