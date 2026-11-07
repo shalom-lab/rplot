@@ -4,6 +4,10 @@
 # Avoided: survminer, survival, EnhancedVolcano, ComplexHeatmap, circlize,
 #          ggrepel, ggbeeswarm, ggridges, ggpubr, factoextra, MASS ellipses
 
+# HARD RULE (2026-11-07): NEVER add panel letter tags in the image
+# (no A/B/C/D, a)/b), （A）（B）, labs(tag=...), patchwork plot_annotation(tag_levels),
+# annotate() corner letters, or cowplot/ggdraw panel labels). Single-panel figures only.
+
 suppressPackageStartupMessages({
   library(ggplot2)
   library(dplyr)
