@@ -2,7 +2,7 @@
   "name": "rplot",
   "description": "真实 SCI / 顶刊风格 ggplot2（及生态）科研图参考集；一文件一图；中文分类与标签。",
   "updated": "2026-11-07",
-  "figure_count": 47,
+  "figure_count": 59,
   "categories": [
     "临床分布",
     "分布展示",
@@ -900,6 +900,234 @@
       ],
       "multipanel": false,
       "note_zh": "折线+点+ribbon；公共卫生时间序列常用排版。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-waterfall-recist",
+      "file": "figures/webr-waterfall-recist.png",
+      "title": "靶病灶最佳变化瀑布图（RECIST）",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-waterfall-recist.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "临床分布",
+      "tags": [
+        "瀑布图",
+        "RECIST",
+        "肿瘤缩小",
+        "疗效",
+        "临床试验"
+      ],
+      "multipanel": false,
+      "note_zh": "WebR：geom_col 瀑布图；±30%/±20% 参考线。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-km-twoarm-manual",
+      "file": "figures/webr-km-twoarm-manual.png",
+      "title": "双臂总体生存 Kaplan–Meier 曲线",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-km-twoarm-manual.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "生存分析",
+      "tags": [
+        "生存曲线",
+        "Kaplan-Meier",
+        "阶梯图",
+        "治疗组",
+        "总生存"
+      ],
+      "multipanel": false,
+      "note_zh": "不用 survminer/survival；手写 KM + geom_step。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-enrichment-nes-bar",
+      "file": "figures/webr-enrichment-nes-bar.png",
+      "title": "Hallmark 通路 NES 富集柱状图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-enrichment-nes-bar.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "基因组学",
+      "tags": [
+        "富集分析",
+        "NES",
+        "通路",
+        "GSEA",
+        "柱状图"
+      ],
+      "multipanel": false,
+      "note_zh": "正负 NES 双向柱；WebR 友好。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-agesex-pyramid",
+      "file": "figures/webr-agesex-pyramid.png",
+      "title": "研究队列年龄–性别金字塔",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-agesex-pyramid.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "流行病学",
+      "tags": [
+        "人口金字塔",
+        "年龄",
+        "性别",
+        "队列",
+        "基线"
+      ],
+      "multipanel": false,
+      "note_zh": "男左女右镜像柱；流行病学基线常用。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-bin2d-coexpression",
+      "file": "figures/webr-bin2d-coexpression.png",
+      "title": "双基因共表达二维分箱密度图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-bin2d-coexpression.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "相关分析",
+      "tags": [
+        "二维密度",
+        "共表达",
+        "geom_bin2d",
+        "散点密度",
+        "转录组"
+      ],
+      "multipanel": false,
+      "note_zh": "geom_bin2d 替代 hexbin；无额外包。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-oncoplot-lite-tile",
+      "file": "figures/webr-oncoplot-lite-tile.png",
+      "title": "驱动基因突变概览（oncoplot-lite）",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-oncoplot-lite-tile.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "基因组学",
+      "tags": [
+        "oncoplot",
+        "突变谱",
+        "热图瓦片",
+        "驱动基因",
+        "体细胞"
+      ],
+      "multipanel": false,
+      "note_zh": "geom_tile 轻量 oncoplot；无 ComplexHeatmap/maftools。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-qq-residuals",
+      "file": "figures/webr-qq-residuals.png",
+      "title": "模型残差正态 Q–Q 图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-qq-residuals.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "模型评估",
+      "tags": [
+        "Q-Q图",
+        "残差",
+        "正态性",
+        "模型诊断",
+        "回归"
+      ],
+      "multipanel": false,
+      "note_zh": "理论分位 vs 样本分位；回归诊断经典图。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-slope-prevalence",
+      "file": "figures/webr-slope-prevalence.png",
+      "title": "地区患病率 2015–2024 斜率图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-slope-prevalence.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "流行病学",
+      "tags": [
+        "斜率图",
+        "患病率",
+        "地区比较",
+        "时间对比",
+        "趋势"
+      ],
+      "multipanel": false,
+      "note_zh": "两端点连线比变化；公共卫生常用。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-multivar-hr-forest",
+      "file": "figures/webr-multivar-hr-forest.png",
+      "title": "多因素 Cox 风险比森林图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-multivar-hr-forest.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "森林图",
+      "tags": [
+        "森林图",
+        "风险比",
+        "Cox",
+        "多因素",
+        "置信区间"
+      ],
+      "multipanel": false,
+      "note_zh": "方点 HR + log 轴；区别于单因素 OR 版。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-zscore-gene-heatmap",
+      "file": "figures/webr-zscore-gene-heatmap.png",
+      "title": "差异基因行标准化表达热图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-zscore-gene-heatmap.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "热图",
+      "tags": [
+        "热图",
+        "z-score",
+        "差异表达",
+        "样本",
+        "转录组"
+      ],
+      "multipanel": false,
+      "note_zh": "行 z-score + gradient2；无 ComplexHeatmap。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-loess-marker-age",
+      "file": "figures/webr-loess-marker-age.png",
+      "title": "标志物随年龄 LOESS 平滑散点",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-loess-marker-age.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "临床分布",
+      "tags": [
+        "LOESS",
+        "散点",
+        "年龄",
+        "生物标志物",
+        "病例对照"
+      ],
+      "multipanel": false,
+      "note_zh": "geom_smooth(loess)+置信带；病例/对照分色。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-likert-stacked",
+      "file": "figures/webr-likert-stacked.png",
+      "title": "患者报告结局 Likert 堆叠条图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-likert-stacked.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07b.R",
+      "license": "MIT (original WebR demo)",
+      "category": "临床分布",
+      "tags": [
+        "Likert",
+        "堆叠条图",
+        "患者报告",
+        "满意度",
+        "问卷"
+      ],
+      "multipanel": false,
+      "note_zh": "100% 堆叠 Likert；PRO/问卷结果常用。",
       "added": "2026-11-07"
     }
   ]
