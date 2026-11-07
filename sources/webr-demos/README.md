@@ -8,6 +8,7 @@ Scripts here regenerate single-panel, Nature/Lancet-style ggplot figures using o
 ```bash
 Rscript sources/webr-demos/generate_batch_2026-11-07.R
 Rscript sources/webr-demos/generate_batch_2026-11-07b.R
+Rscript sources/webr-demos/generate_batch_2026-11-07c.R
 ```
 
 Outputs land in `figures/webr-*.png` and are indexed in root `catalog.json`.

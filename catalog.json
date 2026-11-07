@@ -2,7 +2,7 @@
   "name": "rplot",
   "description": "真实 SCI / 顶刊风格 ggplot2（及生态）科研图参考集；一文件一图；中文分类与标签。",
   "updated": "2026-11-07",
-  "figure_count": 59,
+  "figure_count": 71,
   "categories": [
     "临床分布",
     "分布展示",
@@ -1128,6 +1128,234 @@
       ],
       "multipanel": false,
       "note_zh": "100% 堆叠 Likert；PRO/问卷结果常用。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-bland-altman",
+      "file": "figures/webr-bland-altman.png",
+      "title": "双方法 Bland–Altman 一致性图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-bland-altman.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "模型评估",
+      "tags": [
+        "Bland-Altman",
+        "一致性",
+        "偏倚",
+        "LoA",
+        "方法学"
+      ],
+      "multipanel": false,
+      "note_zh": "均值差图；实线偏倚、虚线±1.96SD；无角标。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-manhattan-lite",
+      "file": "figures/webr-manhattan-lite.png",
+      "title": "全基因组关联曼哈顿图（轻量）",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-manhattan-lite.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "基因组学",
+      "tags": [
+        "曼哈顿图",
+        "GWAS",
+        "显著性",
+        "染色体",
+        "点图"
+      ],
+      "multipanel": false,
+      "note_zh": "纯 ggplot2 曼哈顿；虚线全基因组阈值。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-funnel-meta",
+      "file": "figures/webr-funnel-meta.png",
+      "title": "Meta 分析漏斗图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-funnel-meta.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "流行病学",
+      "tags": [
+        "漏斗图",
+        "Meta分析",
+        "发表偏倚",
+        "效应量",
+        "标准误"
+      ],
+      "multipanel": false,
+      "note_zh": "SE 倒轴+伪95%CI 色带；WebR 友好。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-pareto-adverse",
+      "file": "figures/webr-pareto-adverse.png",
+      "title": "不良事件帕累托图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-pareto-adverse.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "排名图",
+      "tags": [
+        "帕累托",
+        "不良事件",
+        "累计比例",
+        "柱状图",
+        "安全性"
+      ],
+      "multipanel": false,
+      "note_zh": "柱=计数、线=累计占比；双轴展示。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-ecdf-biomarker",
+      "file": "figures/webr-ecdf-biomarker.png",
+      "title": "生物标志物经验累积分布曲线",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-ecdf-biomarker.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "分布展示",
+      "tags": [
+        "ECDF",
+        "累积分布",
+        "生物标志物",
+        "病例对照",
+        "对数轴"
+      ],
+      "multipanel": false,
+      "note_zh": "stat_ecdf 分组曲线；log10 浓度轴。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-resid-fitted",
+      "file": "figures/webr-resid-fitted.png",
+      "title": "残差–拟合值诊断散点",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-resid-fitted.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "模型评估",
+      "tags": [
+        "残差",
+        "拟合值",
+        "LOESS",
+        "模型诊断",
+        "回归"
+      ],
+      "multipanel": false,
+      "note_zh": "残差 vs 拟合+LOESS；回归诊断经典图。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-dotwhisker-sites",
+      "file": "figures/webr-dotwhisker-sites.png",
+      "title": "分中心均数点须图（95%CI）",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-dotwhisker-sites.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "森林图",
+      "tags": [
+        "点须图",
+        "置信区间",
+        "分中心",
+        "均数",
+        "排序"
+      ],
+      "multipanel": false,
+      "note_zh": "按均数排序的 site-level 点+误差条。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-roc-multi",
+      "file": "figures/webr-roc-multi.png",
+      "title": "多模型 ROC 曲线比较",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-roc-multi.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "模型评估",
+      "tags": [
+        "ROC",
+        "AUC",
+        "模型比较",
+        "灵敏度",
+        "特异度"
+      ],
+      "multipanel": false,
+      "note_zh": "三条嵌套模型 ROC；对角参考线。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-range-lab-values",
+      "file": "figures/webr-range-lab-values.png",
+      "title": "检验值对照参考区间图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-range-lab-values.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "临床分布",
+      "tags": [
+        "参考区间",
+        "实验室指标",
+        "异常值",
+        "点图",
+        "检验"
+      ],
+      "multipanel": false,
+      "note_zh": "灰条=参考范围、点=实测；越界标红。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-mosaic-stage-response",
+      "file": "figures/webr-mosaic-stage-response.png",
+      "title": "分期×最佳疗效 100% 堆叠图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-mosaic-stage-response.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "临床分布",
+      "tags": [
+        "堆叠柱",
+        "疗效",
+        "分期",
+        "组成比",
+        "RECIST"
+      ],
+      "multipanel": false,
+      "note_zh": "各分期 CR/PR·SD·PD 构成；无角标。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-parallel-coords",
+      "file": "figures/webr-parallel-coords.png",
+      "title": "基线临床特征平行坐标图",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-parallel-coords.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "多元分析",
+      "tags": [
+        "平行坐标",
+        "标准化",
+        "基线特征",
+        "应答",
+        "多变量"
+      ],
+      "multipanel": false,
+      "note_zh": "z-score 平行坐标；应答/无应答分色。",
+      "added": "2026-11-07"
+    },
+    {
+      "id": "webr-cuminc-endpoint",
+      "file": "figures/webr-cuminc-endpoint.png",
+      "title": "主要终点累积发生率曲线",
+      "source_url": "https://raw.githubusercontent.com/shalom-lab/rplot/main/figures/webr-cuminc-endpoint.png",
+      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/sources/webr-demos/generate_batch_2026-11-07c.R",
+      "license": "MIT (original WebR demo)",
+      "category": "生存分析",
+      "tags": [
+        "累积发生",
+        "阶梯图",
+        "治疗组",
+        "终点",
+        "时间"
+      ],
+      "multipanel": false,
+      "note_zh": "手写累积发生+geom_step；无 survival 包。",
       "added": "2026-11-07"
     }
   ]
