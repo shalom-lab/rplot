@@ -35,6 +35,8 @@ export default function Header({
   q,
   selectMode,
   selectedCount = 0,
+  deleteBusy = false,
+  deletingCount = 0,
   onQuery,
   onToggleSelect,
   onOpenSettings,
@@ -43,6 +45,7 @@ export default function Header({
   const deleteLock = useRef(false);
 
   function handleDeleteClick() {
+    if (deleteBusy) return;
     if (selectedCount === 0) return;
     if (deleteLock.current) return;
     deleteLock.current = true;
@@ -91,21 +94,32 @@ export default function Header({
 
         {/* Right: [已选] [删除] [选择] [gear] [GitHub] — select fixed left of settings */}
         <div className="flex shrink-0 items-center gap-2">
+          {deleteBusy && (
+            <span className="tabular-nums text-[12.5px] text-[var(--color-muted)]">
+              正在删除 {deletingCount} 张…
+            </span>
+          )}
+          {selectMode && !deleteBusy && (
+            <span className="tabular-nums text-[12.5px] text-[var(--color-muted)]">
+              已选 {selectedCount}
+            </span>
+          )}
           {selectMode && (
-            <>
-              <span className="tabular-nums text-[12.5px] text-[var(--color-muted)]">
-                已选 {selectedCount}
-              </span>
-              <button
-                type="button"
-                className="ui-btn ui-btn-danger h-8 px-2.5 text-[12.5px]"
-                disabled={selectedCount === 0}
-                onClick={handleDeleteClick}
-                title={selectedCount === 0 ? "请先勾选卡片" : "删除所选"}
-              >
-                删除
-              </button>
-            </>
+            <button
+              type="button"
+              className="ui-btn ui-btn-danger h-8 px-2.5 text-[12.5px]"
+              disabled={selectedCount === 0 || deleteBusy}
+              onClick={handleDeleteClick}
+              title={
+                deleteBusy
+                  ? "正在删除，请稍候"
+                  : selectedCount === 0
+                    ? "请先勾选卡片"
+                    : "删除所选"
+              }
+            >
+              {deleteBusy ? "删除中" : "删除"}
+            </button>
           )}
 
           <button

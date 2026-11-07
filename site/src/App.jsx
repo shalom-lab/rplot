@@ -31,13 +31,14 @@ export default function App() {
   const [selected, setSelected] = useState(() => new Set());
   const [bulkStep, setBulkStep] = useState(0); // 0 none, 1 first confirm, 2 second confirm
   const [bulkBusy, setBulkBusy] = useState(false);
+  const [deletingCount, setDeletingCount] = useState(0);
 
   const starredOnly = category === "__starred__";
 
-  const showToast = useCallback((msg, err = false) => {
+  const showToast = useCallback((msg, err = false, ms = 2600) => {
     setToast({ msg, err });
     window.clearTimeout(showToast._t);
-    showToast._t = window.setTimeout(() => setToast(null), 2600);
+    showToast._t = window.setTimeout(() => setToast(null), ms);
   }, []);
 
   useEffect(() => {
@@ -157,6 +158,10 @@ export default function App() {
   }
 
   function requestBulkDelete() {
+    if (bulkBusy) {
+      showToast("正在删除中，请稍候", true);
+      return;
+    }
     if (selected.size === 0) {
       showToast("请先选择要删除的图", true);
       return;
@@ -172,29 +177,71 @@ export default function App() {
     setBulkStep(1);
   }
 
-  async function runBulkDelete() {
+  function runBulkDelete() {
+    if (bulkBusy) return;
+    const figs = selectedFigs.slice();
+    const count = figs.length;
+    if (!count || !catalog) return;
+
+    const ids = new Set(figs.map((f) => f.id));
+    const catalogSnapshot = catalog;
+    const favSnapshot = new Set(favorites);
+
+    // Close confirm immediately — delete runs in background
+    setBulkStep(0);
     setBulkBusy(true);
-    try {
-      const data = await deleteFiguresRemote({
-        repo: byok.repo,
-        token: byok.token,
-        figs: selectedFigs,
-      });
-      setCatalog(data);
-      setFavorites((prev) => {
-        const next = new Set(prev);
-        for (const id of selected) next.delete(id);
-        writeFavorites(next);
-        return next;
-      });
-      showToast(`已删除 ${selectedFigs.length} 张图`);
-      exitSelectMode();
-    } catch (err) {
-      showToast(err.message || "批量删除失败", true);
-      setBulkStep(0);
-    } finally {
-      setBulkBusy(false);
-    }
+    setDeletingCount(count);
+
+    // Optimistic remove from gallery
+    setCatalog((prev) => {
+      if (!prev) return prev;
+      const nextFigures = prev.figures.filter((f) => !ids.has(f.id));
+      return {
+        ...prev,
+        figures: nextFigures,
+        figure_count: nextFigures.length,
+        categories: [
+          ...new Set(nextFigures.map((x) => x.category).filter(Boolean)),
+        ].sort(),
+      };
+    });
+
+    setSelected((prev) => {
+      const next = new Set(prev);
+      for (const id of ids) next.delete(id);
+      return next;
+    });
+
+    setFavorites((prev) => {
+      const next = new Set(prev);
+      for (const id of ids) next.delete(id);
+      writeFavorites(next);
+      return next;
+    });
+
+    showToast(`正在删除 ${count} 张…`, false, 4000);
+
+    void (async () => {
+      try {
+        const data = await deleteFiguresRemote({
+          repo: byok.repo,
+          token: byok.token,
+          figs,
+        });
+        setCatalog(data);
+        showToast(`已删除 ${count} 张图`);
+      } catch (err) {
+        setCatalog(catalogSnapshot);
+        setFavorites(() => {
+          writeFavorites(favSnapshot);
+          return new Set(favSnapshot);
+        });
+        showToast(err.message || "批量删除失败", true, 4000);
+      } finally {
+        setBulkBusy(false);
+        setDeletingCount(0);
+      }
+    })();
   }
 
   function onSidebarCategory(next) {
@@ -256,6 +303,8 @@ export default function App() {
         q={q}
         selectMode={selectMode}
         selectedCount={selected.size}
+        deleteBusy={bulkBusy}
+        deletingCount={deletingCount}
         onQuery={setQ}
         onToggleSelect={() => {
           if (selectMode) exitSelectMode();
@@ -402,7 +451,9 @@ export default function App() {
           confirmLabel="继续"
           cancelLabel="取消"
           onCancel={() => setBulkStep(0)}
-          onConfirm={() => setBulkStep(2)}
+          onConfirm={() => {
+            if (!bulkBusy) setBulkStep(2);
+          }}
         >
           <p className="m-0">
             已选择 <strong>{selectedFigs.length}</strong> 张图。下一步将再次确认后，通过
@@ -427,10 +478,9 @@ export default function App() {
         <ConfirmDialog
           title="再次确认永久删除"
           danger
-          confirmLabel={bulkBusy ? "删除中…" : "确认删除"}
+          confirmLabel="确认删除"
           cancelLabel="返回"
-          busy={bulkBusy}
-          onCancel={() => !bulkBusy && setBulkStep(1)}
+          onCancel={() => setBulkStep(1)}
           onConfirm={runBulkDelete}
         >
           <p className="m-0">
