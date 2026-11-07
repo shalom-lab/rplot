@@ -2,7 +2,7 @@
   "name": "rplot",
   "description": "真实 SCI / 顶刊风格 ggplot2（及生态）科研图参考集；一文件一图；中文分类与标签。",
   "updated": "2026-11-07",
-  "figure_count": 49,
+  "figure_count": 47,
   "categories": [
     "临床分布",
     "分布展示",
@@ -387,24 +387,6 @@
       "webr_status": "not-tested"
     },
     {
-      "id": "ggplot-r-demo-01-distribution",
-      "file": "figures/ggplot-r-demo-01-distribution.png",
-      "title": "三组响应分布：小提琴与观测点",
-      "source_url": "outputs/r-demo/01-distribution.png",
-      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
-      "license": "项目自制 ggplot2 示例",
-      "category": "临床分布",
-      "tags": [
-        "小提琴图",
-        "箱线图",
-        "模拟数据"
-      ],
-      "multipanel": false,
-      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/r-demo/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
-      "added": "2026-11-04",
-      "data_type": "simulated"
-    },
-    {
       "id": "ggplot-r-demo-02-volcano",
       "file": "figures/ggplot-r-demo-02-volcano.png",
       "title": "差异表达火山图示例",
@@ -469,24 +451,6 @@
       "tags": [
         "ROC",
         "模型比较",
-        "模拟数据"
-      ],
-      "multipanel": false,
-      "note_zh": "模拟数据；用 ggplot2 绘制。对应数据和生成脚本保存在仓库 outputs/batch-02/ 与 scripts/ggplot-figures.R。仅作图型参考，不代表论文结果。",
-      "added": "2026-11-04",
-      "data_type": "simulated"
-    },
-    {
-      "id": "ggplot-batch-02-08-paired",
-      "file": "figures/ggplot-batch-02-08-paired.png",
-      "title": "配对样本前后变化图",
-      "source_url": "outputs/batch-02/08-paired.png",
-      "paper_or_site": "https://github.com/shalom-lab/rplot/blob/main/scripts/ggplot-figures.R",
-      "license": "项目自制 ggplot2 示例",
-      "category": "临床分布",
-      "tags": [
-        "配对数据",
-        "个体变化",
         "模拟数据"
       ],
       "multipanel": false,
